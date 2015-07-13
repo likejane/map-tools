@@ -32,6 +32,8 @@ router.register(r'mappoints', MapPointViewSet)
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^api/', include(router.urls)),
+    url(r'^api-auth/', include('rest_framework.urls',
+                               namespace='rest_framework')),
     url(r'^bpage$', TemplateView.as_view(template_name='bpage.html')),
     url(r'^cms$', TemplateView.as_view(template_name='cms.html')),
     url(r'^mapmaker/map$', TemplateView.as_view(template_name='mapmaker/map.html')),

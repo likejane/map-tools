@@ -1,6 +1,7 @@
 import django_filters
 
 from rest_framework import viewsets
+from rest_framework import generics
 from rest_framework.response import Response
 
 from api.models import Map, MapPoint
@@ -29,3 +30,7 @@ class MapPointViewSet(viewsets.ModelViewSet):
     serializer_class = MapPointSerializer
     filter_class = MapPointFilter
 
+
+class MapPointList(generics.ListCreateAPIView):
+    queryset = MapPoint.objects.all()
+    serializer_class = MapPointSerializer
