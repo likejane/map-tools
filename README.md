@@ -59,6 +59,19 @@ A [GeoDjango][1] app for creating maps.
 	```
 
 
+### Reference
+
+#### Importing sample data
+
+You can use the `import_points` management command to import map points from a csv into the database.
+
+```bash
+$ python manage.py import_points --map=bikes --file=../data/citibike-demo.csv
+```
+
+
+
+
 
 
 
