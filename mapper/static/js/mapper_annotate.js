@@ -11,7 +11,8 @@ Mapper.annotate = new function() {
     		.addTo(Mapper.map_components.map);
 
     	var m = newMarker.getLatLng();
-    	Mapper.form_components.coords.innerHTML = m.lat + ' ' + m.lng
+    	Mapper.ui.els.markerLat.text(m.lat)
+    	Mapper.ui.els.markerLng.text(m.lng)
 		}
 
 }();

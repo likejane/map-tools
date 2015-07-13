@@ -2,13 +2,16 @@
 
 {% block body %}
 
-<div id="testbutton">BUTTON</div>
+<div id='map-creator'>
 
-<div id='map-creator' style="display:none;">
-xxxxxxxx
-	<div id='form_note'></div>
 	<div id='map'></div>
-	<div id='info'></div>
-	xxxxxxxx
+	<div id='markerAdder'>
+		<div id='markerLat'></div>
+		<div id='markerLng'></div>
+		<div id='markerDesc'><input type='text' value='description' id='markerDescField'></input></div>
+		<div id='markerSaveButton'>Save</div>
+	</div>
+	<div id='markerList'></div>
+
 </div>
 {% endblock %}
