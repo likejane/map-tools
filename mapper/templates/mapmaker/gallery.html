@@ -25,11 +25,10 @@
 
 <div class="clearfix pb4  border-bottom">
 
-  <div class="col md-col-6 xs-col-12">
+  <div class="col md-col-6 xs-col-12 pr3">
 
     <label class="form-label">Title</label>
-    <input type="text" class="text-input block col-4 xs-col-12">
-    <label class="form-helper block mb4">Give your map a descriptive title!</label>
+    <input type="text" placeholder="Enter the title of your map" class="mb4 text-input block col-4 xs-col-12">
 
     <h4 class="bold">Pin Locations</h4>
     <p>To create pinpoints on the map, pan and zoom to the area you want to map. Click to select a pin and add the corresponding text. Click to select a pin and add the corresponding text.</p>
@@ -39,15 +38,21 @@
     </div>
 
     <label class="form-label"><span class="regular text-gray--lightest mr1">Pin 1</span>(40.748441, -73.985664)</label>
-    <input type="text" placeholder="Enter the description for pinpoint location" class="mr2 text-input col col-8">
+    <input type="text" placeholder="Enter the description for pinpoint location" class="mr1 text-input col col-8">
     <button class="button button--primary">Add Pin</button>
     <button class="button button--secondary">Cancel</button>
 
+  </div>
+
+  <div class="col md-col-6 xs-col-12">
+
+    <label class="form-label">Notes</label>
+    <input type="text" class="text-input block col-4 xs-col-12 notes-input">
 
   </div>
 
 
-  </div>
+</div>
 
 
 
