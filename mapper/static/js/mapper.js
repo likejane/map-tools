@@ -5,7 +5,7 @@ var Mapper = new function() {
 	this.map
 
 	this.init = function() {
-		_map.generator.init()
+		Mapper.generate.init();
 	}
 
 
