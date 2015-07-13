@@ -70,6 +70,14 @@ $ python manage.py import_points --map=bikes --file=../data/citibike-demo.csv
 ```
 
 
+<<<<<<< HEAD
+=======
+
+
+
+
+
+>>>>>>> parent of 3b679dd... clean master
 [1]: https://docs.djangoproject.com/en/dev/ref/contrib/gis/ "GeoDjango"
 [2]: https://github.com/buzzfeed/buzzfeed_setup "BuzzFeed development setup"
 [3]: https://www.codefellows.org/blog/three-battle-tested-ways-to-install-postgresql#macosx "How to install postgresql"
