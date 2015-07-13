@@ -4,11 +4,14 @@ from rest_framework import viewsets
 from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework.decorators import list_route
+<<<<<<< HEAD
 
 from rest_framework_bulk import (
     BulkCreateModelMixin,
     BulkUpdateModelMixin
 )
+=======
+>>>>>>> Add full response serializer and view
 
 from rest_framework_bulk import (
     BulkCreateModelMixin,
@@ -22,6 +25,7 @@ class MapViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows maps to be viewed.
     """
+
     queryset = Map.objects.all()
 
     def get_serializer_class(self):
