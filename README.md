@@ -1,65 +1,67 @@
+#map-tools
+
+
+## mapper
+
+A [GeoDjango][1] app for creating maps.
+
+### Development
+
+- API: [http://localhost:8000/api/](http://localhost:8000/api/)
+- Demo Map: [http://localhost:8000/](http://localhost:8000/)
+
+#### Prerequisites
+
+- __Python:__ The [buzzfeed dev setup][2] kickstart script should take care of your python setup.
+
+- __Postgres:__ The django app uses a PostgreSQL database with GIS functionality. To install postgres installed and get it running([source][3]):
+
+	``` bash
+	$ brew install postgresql
+	$ brew install postgis
+	$ ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents
+	$ launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+	```
+- GeoDjango also requries GDAL and libgeoip.
+
+	``` bash
+	$ brew install gdal
+	$ brew install libgeoip
+	```
+
+#### Setup
+
+1. Create virtualenv and install requirements.
+
+	``` bash
+	$ mkvirtualenv mapper
+	$ pip install requirements.txt
+	```
+
+2. Setup PostGIS database and enable spatial functionality.
+
+	``` bash
+	$ createuser --superuser geo
+	$ createdb geodjango --owner=geo
+	$ psql geodjango
+	> CREATE EXTENSION postgis;
+	```
+
+4. Run initial django migrations.
+
+	``` bash
+	$ python manage.py migrate
+	```
+5. Start server.
+
+	``` bash
+	$ python manage.py runserver
+	```
 
 
 
 
-## Dev Setup
 
-### Backend
-
-1. Basic buzzfeed dev setup.
-
-To store the geodata points the app uses PostGres database with GIS functionality.
-This requires a little extra work for setup.
-
-After running `brew install postgres` you need to:
-
-`ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents`
-
-then
-
-`launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist`
-
-Source (https://www.codefellows.org/blog/three-battle-tested-ways-to-install-postgresql#macosx).
-
-
-2. PostGIS prerequisites.
-	- postgresql and gdal _might_ already be installed on your computer.
-	- Setup databases
-
-Run which to see what's installed
-
-```bash
-createuser --superuser geo
-createdb geodjango --owner=geo
-```
-
-
-
-
-3. Create `mapper` virtualenv and install requirements.
-
-4. Run django migrations.
-
-`python manage.py migrate`
-
-5. Start server
-`python manage.py runserver`
-
-
-
-
-
-
-
-geodjango tutorial: https://docs.djangoproject.com/en/dev/ref/contrib/gis/tutorial/
-installing postGIS: https://docs.djangoproject.com/en/dev/ref/contrib/gis/install/#macosx
-https://docs.djangoproject.com/en/dev/ref/contrib/gis/install/postgis/#spatialdb-template
-http://gis.stackexchange.com/questions/71130/how-to-create-a-new-gis-database-in-postgis
-
-
-http://www.django-rest-framework.org/
-
-
-## Management Commands
-
-#### add_points
+[1]: https://docs.djangoproject.com/en/dev/ref/contrib/gis/ "GeoDjango"
+[2]: https://github.com/buzzfeed/buzzfeed_setup "BuzzFeed development setup"
+[3]: https://www.codefellows.org/blog/three-battle-tested-ways-to-install-postgresql#macosx "How to install postgresql"
