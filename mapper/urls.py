@@ -37,5 +37,6 @@ urlpatterns = [
     url(r'^mapmaker/map$', TemplateView.as_view(template_name='mapmaker/map.html')),
     url(r'^mapmaker/gallery$', TemplateView.as_view(template_name='mapmaker/gallery.html')),
     url(r'^demo/test$', TemplateView.as_view(template_name='demo/test.html')),
+    url(r'^creator-test$', TemplateView.as_view(template_name='creator-test.html')),
 
 ]
