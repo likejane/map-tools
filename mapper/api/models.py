@@ -1,8 +1,6 @@
 from django.db import models
 from django.contrib.gis.db import models as geomodels
 
-
-
 class Map(geomodels.Model):
 	name = models.CharField(max_length=256)
 	notes = models.CharField(max_length=1024, blank=True)
@@ -20,7 +18,3 @@ class MapPoint(geomodels.Model):
 	updated_at = models.DateTimeField(auto_now=True)
 
 	objects = geomodels.GeoManager()
-
-
-
-
