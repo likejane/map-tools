@@ -6,15 +6,14 @@ from rest_framework_bulk import (
     BulkSerializerMixin
 )
 
-
 from api.models import Map, MapPoint
 
 
-class MapPointSerializer(GeoFeatureModelSerializer):
+class MapPointSerializer(BulkSerializerMixin,GeoFeatureModelSerializer):
     class Meta:
         model = MapPoint
         geo_field = "point"
-
+        list_serializer_class=BulkListSerializer
 
 class MapSerializerFullResponse(serializers.ModelSerializer):
     points = MapPointSerializer(many=True, read_only=True)
@@ -27,9 +26,3 @@ class MapSerializer(serializers.ModelSerializer):
     class Meta:
         model = Map
 
-
-class MapPointSerializer(BulkSerializerMixin,GeoFeatureModelSerializer):
-    class Meta:
-        model = MapPoint
-        geo_field = "point"
-        list_serializer_class=BulkListSerializer
