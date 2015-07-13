@@ -1,1 +1,40 @@
 {% extends "base.html" %}
+{% load staticfiles %}
+{% load compress %}
+
+{% block head %}
+<head>
+  <title>Mexican Drug Lord Escapes From Maximum Security Prison — Again</title>
+  {% compress css %}
+  <link rel="stylesheet" type="text/scss" href="{% static 'css/maps.scss' %}" />
+  {% endcompress %}
+</head>
+{% endblock %}
+
+{% block body %}
+<div class="mx-auto p2 wrapper">
+  <div class="col md-col-8 xs-col-12">
+    <h1 class="bold my2">Maps Hub</h1>
+    <p>Quisque laoreet porttitor est ac convallis. In molestie est vel tristique ultrices. Donec condimentum, metus ut facilisis commodo, ligula massa ultricies velit, sed mollis felis urna id est. Vivamus vehicula rhoncus mi vel imperdiet. Duis eu finibus nisl, pellentesque facilisis neque. </p>
+  </div>
+
+  <div class="col col-12 my3">
+    <a class="button button--primary col md-col-2" href="">Save and Publish</a>
+    <a class="button button--secondary col md-col-2" href="">Cancel</a>
+  </div>
+
+  <div class="col md-col-6 xs-col-12">
+
+    <label class="form-label">Title</label>
+    <input type="text" class="text-input block col-4 xs-col-12">
+    <label class="form-helper block mb4">Give your map a descriptive title!</label>
+
+    <h4 class="bold">Pin Locations</h4>
+    <p>To create pinpoints on the map, pan and zoom to the area you want to map. Click to select a pin and add the corresponding text. Click to select a pin and add the corresponding text.</p>
+  </div>
+
+</div>
+
+{% endblock %}
+
+
