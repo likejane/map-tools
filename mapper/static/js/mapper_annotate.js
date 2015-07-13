@@ -4,7 +4,7 @@ Mapper.annotate = new function() {
 
 	}
 
-	this.addMarker = function() {
+	this.addMarker = function(e) {
 
     	var newMarker = new L.marker(e.latlng, {
     		draggable: true })
