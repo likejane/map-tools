@@ -10,7 +10,8 @@ Mapper.annotate = new function() {
     		draggable: true })
     		.addTo(Mapper.map_components.map);
 
-    	alert(e.latlng);
+    	var m = newMarker.getLatLng();
+    	Mapper.form_components.coords.innerHTML = m.lat + ' ' + m.lng
 		}
 
 }();
