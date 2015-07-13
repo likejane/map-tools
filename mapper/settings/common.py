@@ -40,7 +40,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.gis',
     'rest_framework',
-    'api'
+    'api',
+    'compressor'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -113,6 +114,7 @@ STATICFILES_DIRS = (
 )
 
 STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR
 
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
@@ -122,3 +124,14 @@ REST_FRAMEWORK = {
     ],
     'DEFAULT_FILTER_BACKENDS': ('rest_framework.filters.DjangoFilterBackend',)
 }
+
+COMPRESS_PRECOMPILERS = (
+    ('text/scss', 'sass --scss {infile} {outfile}'),
+)
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    # other finders..
+    'compressor.finders.CompressorFinder',
+)
