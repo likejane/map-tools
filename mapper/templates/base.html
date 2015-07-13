@@ -10,11 +10,28 @@
     <title>{% block title %}BuzzFeed Maps{% endblock %}</title>
 
     <link rel="stylesheet" type="text/css" href="{% static 'css/solid.css' %}" />
+    <link href='https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.css' rel='stylesheet' />
+
+	<script src='https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.js'></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="{% static 'js/mapper.js' %}"></script>
+	<script src="{% static 'js/mapper_generate.js' %}"></script>
+	<script src="{% static 'js/mapper_annotate.js' %}"></script>
+	<script src="{% static 'js/mapper_save.js' %}"></script>
+	<script src="{% static 'js/ui.js' %}"></script>
+	<script src="{% static 'js/mustache.js' %}"></script>
+	<script>L.mapbox.accessToken = 'pk.eyJ1IjoicmFkZGRpYyIsImEiOiJkNmU0ZDNkZTg1ZmEzYzZjNGRmYWE0NDg2ODNlMzkxYyJ9.JuCOrEi6fdy9zRDW-lJo7A';</script>
+	
+	<style>
+	  body { margin:0; padding:0; }
+	  #map { position:absolute; top:100px; bottom:100px; left:100px; right:100px;}
+	</style>
 
     {% block head %} {% endblock %}
 
   </head>
   <body>
+
     {% block body %} {% endblock %}
 
   </body>

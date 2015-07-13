@@ -2,13 +2,18 @@ var Mapper = new function() {
 
 	_map = this;
 	this.els= {}
+	this.map_components = {
+		map: null,
+		markerGroup: null
+	}
 
 	this.init = function() {
-		_map.els.savebtn = $('savebtn');
-
-		_map.save.init();
+		Mapper.generate.init();
 	}
 
 
 }();
-Mapper.init();
+
+$(document).ready(function() {
+	Mapper.init();
+});
