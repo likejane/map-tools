@@ -11,8 +11,10 @@ Mapper.annotate = new function() {
     		.addTo(Mapper.map_components.map);
 
     	var m = newMarker.getLatLng();
+    	var j = newMarker.toGeoJSON();
     	Mapper.ui.els.markerLat.text(m.lat)
     	Mapper.ui.els.markerLng.text(m.lng)
+    	console.log(j)
 		}
 
 }();
