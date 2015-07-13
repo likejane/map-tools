@@ -35,7 +35,7 @@ A [GeoDjango][1] app for creating maps.
 
 	``` bash
 	$ mkvirtualenv mapper
-	$ pip install requirements.txt
+	$ pip install -U -r requirements.txt
 	```
 
 2. Setup PostGIS database and enable spatial functionality.
