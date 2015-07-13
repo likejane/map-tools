@@ -7,7 +7,8 @@
 <script src='https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.js'></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="http://localhost:8000/static/js/mapper.js"></script>
-<script src="http://localhost:8000/static/js/mapper_generator.js"></script>
+<script src="http://localhost:8000/static/js/mapper_generate.js"></script>
+<script src="http://localhost:8000/static/js/mapper_annotate.js"></script>
 <script src="http://localhost:8000/static/js/mapper_save.js"></script>
 <link href='https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.css' rel='stylesheet' />
 <style>
@@ -28,17 +29,6 @@ L.mapbox.accessToken = 'pk.eyJ1IjoicmFkZGRpYyIsImEiOiJkNmU0ZDNkZTg1ZmEzYzZjNGRmY
 // http://en.wikipedia.org/wiki/Same_origin_policy
 // So the CSV file must be on the same domain as the Javascript, or the server
 // delivering it should support CORS.
-newMarkerGroup = new L.LayerGroup();
-    map.on('dblclick', addMarker);
-
-function addMarker(e){
-    // Add marker to map at click location; add popup window
-    var newMarker = new L.marker(e.latlng, {
-    	draggable: true })
-    	.addTo(map);
-
-    info.innerHTML = e.latlng;
-}
 
 </script>
 </body>

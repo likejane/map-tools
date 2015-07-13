@@ -8,7 +8,7 @@ Mapper.annotate = new function() {
 
     	var newMarker = new L.marker(e.latlng, {
     		draggable: true })
-    		.addTo(map);
+    		.addTo(Mapper.map_components.map);
 
     	alert(e.latlng);
 		}
