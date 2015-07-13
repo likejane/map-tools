@@ -1,8 +1,11 @@
-Mapper.ui = function() {
+Mapper.ui = new function() {
 	_ui = this;
 
 	this.els = {};
-	this.selectors = {};
+	this.selectors = {
+		'mapCreator': '#map-creator',
+		'testBtn': '#testbutton'	
+	};
 	this.templates = {};
 	this.events = {};
 
@@ -18,7 +21,11 @@ Mapper.ui = function() {
 	}
 
 	this.addEvents = function() {
+		_ui.els.testBtn.click(_ui.toggleCreator);
+	}
 
+	this.toggleCreator = function() {
+		_ui.els.mapCreator.slideToggle();
 	}
 
 
