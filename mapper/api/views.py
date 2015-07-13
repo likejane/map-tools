@@ -18,6 +18,11 @@ from rest_framework_bulk import (
     BulkUpdateModelMixin
 )
 
+from rest_framework_bulk import (
+    BulkCreateModelMixin,
+    BulkUpdateModelMixin
+)
+
 from api.models import Map, MapPoint
 from api.serializers import MapSerializer, MapPointSerializer, MapSerializerFullResponse
 
