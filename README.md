@@ -28,6 +28,10 @@ A [GeoDjango][1] app for creating maps.
 	$ brew install gdal
 	$ brew install libgeoip
 	```
+- __Sass__:
+	``` bash
+	$ sudo gem install sass
+	```
 
 #### Setup
 
