@@ -13,9 +13,8 @@ Mapper.generate = new function() {
 
 	}
 
-	    this.addListeners = function() {
-	    	Mapper.map_components.map.on('dblclick', Mapper.annotate.addMarker)
-
+	this.addListeners = function() {
+	    Mapper.map_components.map.on('dblclick', Mapper.annotate.addMarker)
     }
 
 
