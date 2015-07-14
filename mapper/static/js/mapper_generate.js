@@ -8,6 +8,8 @@ Mapper.generate = new function() {
 			.setView([38.1089, 13.3545], 8)
 			.addControl(L.mapbox.geocoderControl('mapbox.places'));
 
+    	Mapper.map_components.activeMarkerLayer = new L.mapbox.featureLayer().addTo(Mapper.map_components.map);
+    	Mapper.map_components.storageMarkerLayer = new L.mapbox.featureLayer().addTo(Mapper.map_components.map);
     	Mapper.generate.addListeners()
 
 	}
