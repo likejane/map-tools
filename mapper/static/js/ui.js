@@ -4,7 +4,7 @@ Mapper.ui = new function() {
 	this.els = {};
 	this.selectors = {
 		'mapCreator': '#map-creator',
-		'testBtn': '#testbutton',
+		'createNewMap': '#createNewMap',
 		'variable': '#css-selector'	
 	};
 	this.templates = {};
@@ -22,11 +22,12 @@ Mapper.ui = new function() {
 	}
 
 	this.addEvents = function() {
-		_ui.els.testBtn.click(_ui.toggleCreator);
+		_ui.els.createNewMap.click(_ui.toggleCreator);
 	}
 
 	this.toggleCreator = function() {
-		_ui.els.mapCreator.slideToggle();
+		_ui.els.mapCreator.slideDown();
+		//_ui.els.mapCreator.addClass('animated slideInUp')
 	}
 
 
