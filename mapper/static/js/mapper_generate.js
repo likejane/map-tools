@@ -5,7 +5,8 @@ Mapper.generate = new function() {
 
 		Mapper.map_components.map = L.mapbox.map('map', 'mapbox.streets', {
 		doubleClickZoom: false })
-    	.setView([38.1089, 13.3545], 8);
+			.setView([38.1089, 13.3545], 8)
+			.addControl(L.mapbox.geocoderControl('mapbox.places'));
 
     	Mapper.generate.addListeners()
 
