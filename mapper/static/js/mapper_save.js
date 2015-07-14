@@ -26,6 +26,7 @@ Mapper.save = new function() {
 			Mapper.ui.els.markerDescField.val('description')
 			Mapper.ui.els.markerLat.text('')
 			Mapper.ui.els.markerLng.text('')
+			alert(Mapper.annotate.markerJSON)
 
 			Mapper.save.markerArray.push(markerData)
 			Mapper.save.markerIds += 1
