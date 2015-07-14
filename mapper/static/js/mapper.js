@@ -13,6 +13,7 @@ var Mapper = new function() {
 	this.init = function() {
 		Mapper.ui.init();
 		Mapper.generate.init();
+		Mapper.annotate.markerJSON = 'test';
 	}
 
 

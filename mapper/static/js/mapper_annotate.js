@@ -1,5 +1,9 @@
 Mapper.annotate = new function() {
 
+	_annotate = this;
+
+	this.markerJSON = {};
+
 	this.init = function() {
 
 	}
@@ -11,7 +15,9 @@ Mapper.annotate = new function() {
     		.addTo(Mapper.map_components.map);
 
     	var m = newMarker.getLatLng();
-    	Mapper.form_components.coords.innerHTML = m.lat + ' ' + m.lng
+    	_annotate.markerJSON = newMarker.toGeoJSON();
+    	Mapper.ui.els.markerLat.text(m.lat)
+    	Mapper.ui.els.markerLng.text(m.lng)
 		}
 
 }();

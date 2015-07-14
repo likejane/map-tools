@@ -4,7 +4,13 @@ Mapper.ui = new function() {
 	this.els = {};
 	this.selectors = {
 		'mapCreator': '#map-creator',
-		'testBtn': '#testbutton'	
+		'testBtn': '#testbutton',
+		'markerLat': '#markerLat',
+		'markerLng': '#markerLng',
+		'markerDescField': '#markerDescField',
+		'markerSaveButton': '#markerSaveButton',
+		'markerDeleteButton': '.markerDeleteButton',
+		'markerList': '#markerList'
 	};
 	this.templates = {};
 	this.events = {};
@@ -22,6 +28,8 @@ Mapper.ui = new function() {
 
 	this.addEvents = function() {
 		_ui.els.testBtn.click(_ui.toggleCreator);
+		_ui.els.markerSaveButton.click(Mapper.save.saveMarker);
+		_ui.els.markerDeleteButton.click();
 	}
 
 	this.toggleCreator = function() {
