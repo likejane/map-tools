@@ -9,7 +9,7 @@ Mapper.generate = new function() {
 			.addControl(L.mapbox.geocoderControl('mapbox.places'));
 
     	Mapper.map_components.activeMarkerLayer = new L.mapbox.featureLayer().addTo(Mapper.map_components.map);
-    	Mapper.map_components.storageMarkerLayer = new L.mapbox.featureLayer().addTo(Mapper.map_components.map);
+    	Mapper.map_components.storageMarkerLayer = new L.geoJson().addTo(Mapper.map_components.map);
     	Mapper.generate.addListeners();
 
 	}

@@ -66,7 +66,8 @@ Mapper.save = new function() {
 			markerJSON.properties.title = Mapper.ui.els.markerDesc.val()
 
 			Mapper.map_components.activeMarkerLayer.removeLayer(Mapper.annotate.marker);
-			L.mapbox.featureLayer(markerJSON).addTo(Mapper.map_components.storageMarkerLayer);
+			Mapper.map_components.storageMarkerLayer.addData(markerJSON);
+			//L.mapbox.featureLayer(markerJSON).addTo(Mapper.map_components.storageMarkerLayer);
 
 		} else {
 			alert('please doubleclick to select point')

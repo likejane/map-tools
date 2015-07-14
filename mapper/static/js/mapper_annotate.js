@@ -17,12 +17,7 @@ Mapper.annotate = new function() {
     		draggable: true });
 
     	_annotate.marker.addTo(Mapper.map_components.activeMarkerLayer);
-    	//Mapper.map_components.activeMarkerLayer.addLayer(_annotate.marker);
 
-    	//_annotate.markerLatLng = newMarker.getLatLng();
-    	//_annotate.markerJSON = newMarker.toGeoJSON();
-    	//Mapper.ui.els.markerLat.text(_annotate.marker.getLatLng().lat)
-    	//Mapper.ui.els.markerLng.text(_annotate.marker.getLatLng().lng)
     	Mapper.ui.els.markerLoc.text(_annotate.marker.getLatLng())
 		}
 
