@@ -40,9 +40,9 @@ class MapViewSet(viewsets.ModelViewSet):
 
 
 class MapPointFilter(django_filters.FilterSet):
-	class Meta:
-		model = MapPoint
-		fields = ['map']
+    class Meta:
+        model = MapPoint
+        fields = ['map']
 
 
 class MapPointViewSet(viewsets.ModelViewSet,

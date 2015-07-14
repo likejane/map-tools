@@ -4,10 +4,20 @@ Mapper.ui = new function() {
 	this.els = {};
 	this.selectors = {
 		'mapCreator': '#map-creator',
+		'testBtn': '#testbutton',
+		'markerLat': '#markerLat',
+		'markerLng': '#markerLng',
+		'markerDescField': '#markerDescField',
+		'markerSaveButton': '#markerSaveButton',
+		'markerDeleteButton': '.markerDeleteButton',
+		'markerList': '#markerList',
+		'saveJSONButton': '#saveJSONButton',
 		'createNewMap': '#createNewMapBtn',
 		'savePublish': '#savePublishBtn',
 		'cancelMap': '#cancelMapBtn',
-		'variable': '#css-selector'	
+		'mapTitle': '#mapTitle',
+		'mapNotes': '#mapNotes',
+		'formInputs': '.form-input',
 	};
 	this.templates = {};
 	this.events = {};
@@ -24,16 +34,35 @@ Mapper.ui = new function() {
 	}
 
 	this.addEvents = function() {
+		_ui.els.markerSaveButton.click(Mapper.save.saveMarker);
+		_ui.els.markerDeleteButton.click();
+		_ui.els.saveJSONButton.click(Mapper.save.saveJSON);
 		_ui.els.createNewMap.click(_ui.openMapCreator);
 		_ui.els.cancelMap.click(_ui.closeMapCreator);
+		_ui.els.savePublish.click(Mapper.save.init);
+		_ui.els.formInputs.keyup(_ui.toggleInputError);
+	}
+
+	this.toggleInputError = function() {
+		inputEl = $(this),
+		inputElParent = inputEl.parent();
+
+		if (inputEl.val().length > 0) {
+			inputElParent.removeClass('form-error');
+		} else {
+			//inputElParent.addClass('form-error');
+		}
 	}
 
 	this.openMapCreator = function() {
-		_ui.els.mapCreator.slideDown(250);
 		_ui.els.createNewMap.hide();
 		_ui.els.savePublish.show();
 		_ui.els.cancelMap.show();
-		//_ui.els.mapCreator.addClass('animated slideInUp')
+		_ui.els.formInputs.val('');
+		_ui.els.formInputs.parents().removeClass('form-error');
+		_ui.els.mapCreator.slideDown(250, function() {
+			Mapper.generate.init();
+		});
 	}
 
 	this.closeMapCreator = function() {
@@ -41,7 +70,6 @@ Mapper.ui = new function() {
 		_ui.els.createNewMap.show();
 		_ui.els.savePublish.hide();
 		_ui.els.cancelMap.hide();
-		//_ui.els.mapCreator.addClass('animated slideInUp')
 	}	
 
 
