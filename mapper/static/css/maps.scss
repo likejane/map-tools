@@ -8,12 +8,8 @@
 }
 
 .byline_avatar-size, .byline_map-size {
-  width: 34px;
-  height: 34px; 
-}
-
-.border-light {
-  border: 1px solid #DFDFDF;
+  width: 40px;
+  height: 40px; 
 }
 
 .news-nav-li {
@@ -23,10 +19,9 @@
   }
 }
 
-.letter-space {
-  letter-spacing: .05rem;
+.news-title { 
+  font-size: 2.5rem;
 }
-
 
 // These are the social button styles pulled from waffle 
 
@@ -74,12 +69,6 @@
 }
 
 
-// had way too much trouble horizontally centering an inline ul. can we add something to solid for this? i can imagine horizontal li's aren't an edge case
-.ul--flex {
-  display: -webkit-flex;
-  justify-content: center;
-}
-
 // flex for nav to align on the baseline with inline-block
 
 .flex-end {
@@ -126,6 +115,30 @@
 .notes-input {
   height: 130px;
 }
+
+
+// flex classes
+.display-flex {
+  display: flex;
+}
+ 
+
+.flex-push-right {
+  margin: 0 auto;
+}
+
+.flex-1 {
+  flex:1
+}
+
+
+//for nav only! refactor this
+.ul--flex {
+  display: -webkit-flex;
+  justify-content: center;
+  
+}
+
 
 
 
