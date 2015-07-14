@@ -5,12 +5,17 @@ from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework.decorators import list_route
 
+from rest_framework_bulk import (
+    BulkCreateModelMixin,
+    BulkUpdateModelMixin
+)
+
 from api.models import Map, MapPoint
 from api.serializers import MapSerializer, MapPointSerializer, MapSerializerFullResponse
 
 class MapViewSet(viewsets.ModelViewSet):
     """
-    API endpoint that allows datapoints to be viewed.
+    API endpoint that allows maps to be viewed.
     """
 
     queryset = Map.objects.all()
@@ -39,15 +44,12 @@ class MapPointFilter(django_filters.FilterSet):
 		fields = ['map']
 
 
-class MapPointViewSet(viewsets.ModelViewSet):
+class MapPointViewSet(viewsets.ModelViewSet,
+                        BulkCreateModelMixin,
+                        BulkUpdateModelMixin):
     """
     API endpoint that allows datapoints to be viewed.
     """
     queryset = MapPoint.objects.all()
     serializer_class = MapPointSerializer
     filter_class = MapPointFilter
-
-
-class MapPointList(generics.ListCreateAPIView):
-    queryset = MapPoint.objects.all()
-    serializer_class = MapPointSerializer
