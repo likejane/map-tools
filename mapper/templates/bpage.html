@@ -9,6 +9,17 @@
   <link rel="stylesheet" type="text/scss" href="{% static 'css/maps.scss' %}" />
   {% endcompress %}
 </head>
+
+<style>
+  #map {
+   position: relative;
+   top:0px;
+   left:0px;
+   right:0px;
+   bottom:0px;
+   width: 100%;
+   height: 400px; }
+  </style>
 {% endblock %}
 
 {% block body %}
@@ -56,9 +67,9 @@
   </div>
 <!-- END HEADER AND NAV -->
 
-  <div class="wrapper mx-auto my3">  
+  <div class="wrapper mx-auto my3">
 
-  
+
   <div class="col col-8 pb4">
 
     <!-- title, dek, timestamp -->
@@ -67,7 +78,7 @@
     <p class="type-3 my2">It’s the second time Joaquín “El Chapo” Guzmán has escaped a maximum security facility in Mexico. BuzzFeed News reporter Karla Zabludovsky is in Mexico City.</p>
     <p class="type-6 text-gray--lightest">Originally posted on Jul. 12, 2015, at 5:05 a.m.</p>
     <p class="type-6 text-gray--lightest mb4">Updated on Jul. 12, 2015, at 2:18 p.m.</p>
- 
+
     <!-- author byline -->
     <div class="col col-3 mr2">
       <div class="float-left pr1"><a href="#"><img class="byline_avatar-size circle" src="http://s3-ak.buzzfeed.com/static/2015-07/4/17/user_images/webdr04/felipearaujo-v2-20406-1436044708-0_large.jpg"></a></div>
@@ -98,13 +109,26 @@
 
     <!-- subbuzz -->
     <div class="subbuzz col col-12">
-        <h2 class="bold mb2">Map Div</h2>
-        <img src="https://pbs.twimg.com/media/CJt2hzTUAAAMXZe.png" alt="" class="full-width block">
+        <h2 class="bold mb2">Map</h2>
+        <div id="map"></div>
         <p class="type-6 text-gray--lightest mt1">Data/map source here?</p>
     </div>
-  
+
   </div>
-    
 
-  {% endblock %}
+  <script type="text/javascript">
+  {% autoescape off %}
+    L.mapbox.accessToken = 'pk.eyJ1IjoicmFkZGRpYyIsImEiOiJkNmU0ZDNkZTg1ZmEzYzZjNGRmYWE0NDg2ODNlMzkxYyJ9.JuCOrEi6fdy9zRDW-lJo7A';
+    var map = L.mapbox.map('map', 'mapbox.streets');
 
+    var featureLayer = L.mapbox.featureLayer()
+        .loadURL('/api/mappoints/')
+        .addTo(map);
+
+    featureLayer.on('ready', function() {
+        map.fitBounds(featureLayer.getBounds());
+    });
+  {% endautoescape %}
+  </script>
+
+{% endblock %}
