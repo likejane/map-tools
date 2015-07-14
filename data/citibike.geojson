@@ -1,0 +1,285 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "497",
+        "title": "E 17 St & Broadway",
+        "trips_ended": "43493",
+        "trips_started": "39987",
+        "trips_total": "83480",
+        "fpct_started": "0.2608",
+        "fpct_ended": "0.2661",
+        "fpct_total": "0.2636"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99009,
+          40.73705
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "521",
+        "title": "8 Ave & W 31 St",
+        "trips_ended": "38407",
+        "trips_started": "38953",
+        "trips_total": "77360",
+        "fpct_started": "0.1545",
+        "fpct_ended": "0.1699",
+        "fpct_total": "0.1621"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99481,
+          40.75045
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "293",
+        "title": "Lafayette St & E 8 St",
+        "trips_ended": "38028",
+        "trips_started": "38368",
+        "trips_total": "76396",
+        "fpct_started": "0.2584",
+        "fpct_ended": "0.2564",
+        "fpct_total": "0.2574"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99076,
+          40.73029
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "519",
+        "title": "Pershing Square N",
+        "trips_ended": "32468",
+        "trips_started": "41705",
+        "trips_total": "74173",
+        "fpct_started": "0.137",
+        "fpct_ended": "0.1348",
+        "fpct_total": "0.136"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9777,
+          40.75188
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "459",
+        "title": "W 20 St & 11 Ave",
+        "trips_ended": "37119",
+        "trips_started": "36543",
+        "trips_total": "73662",
+        "fpct_started": "0.2439",
+        "fpct_ended": "0.2435",
+        "fpct_total": "0.2437"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00776,
+          40.74675
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "285",
+        "title": "Broadway & E 14 St",
+        "trips_ended": "32727",
+        "trips_started": "33366",
+        "trips_total": "66093",
+        "fpct_started": "0.2574",
+        "fpct_ended": "0.2704",
+        "fpct_total": "0.2638"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99074,
+          40.73455
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "435",
+        "title": "W 21 St & 6 Ave",
+        "trips_ended": "31192",
+        "trips_started": "31590",
+        "trips_total": "62782",
+        "fpct_started": "0.282",
+        "fpct_ended": "0.274",
+        "fpct_total": "0.278"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99416,
+          40.74174
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "382",
+        "title": "University Pl & E 14 St",
+        "trips_ended": "30348",
+        "trips_started": "29943",
+        "trips_total": "60291",
+        "fpct_started": "0.2673",
+        "fpct_ended": "0.2655",
+        "fpct_total": "0.2664"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99201,
+          40.73493
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "402",
+        "title": "Broadway & E 22 St",
+        "trips_ended": "29478",
+        "trips_started": "28835",
+        "trips_total": "58313",
+        "fpct_started": "0.2535",
+        "fpct_ended": "0.2564",
+        "fpct_total": "0.255"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98955,
+          40.74034
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "477",
+        "title": "W 41 St & 8 Ave",
+        "trips_ended": "27535",
+        "trips_started": "30171",
+        "trips_total": "57706",
+        "fpct_started": "0.1338",
+        "fpct_ended": "0.1364",
+        "fpct_total": "0.135"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99003,
+          40.75641
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "426",
+        "title": "West St & Chambers St",
+        "trips_ended": "28974",
+        "trips_started": "28655",
+        "trips_total": "57629",
+        "fpct_started": "0.3216",
+        "fpct_ended": "0.3152",
+        "fpct_total": "0.3184"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.01322,
+          40.71755
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "151",
+        "title": "Cleveland Pl & Spring St",
+        "trips_ended": "27856",
+        "trips_started": "28176",
+        "trips_total": "56032",
+        "fpct_started": "0.2859",
+        "fpct_ended": "0.2749",
+        "fpct_total": "0.2804"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9972,
+          40.72182
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "284",
+        "title": "Greenwich Ave & 8 Ave",
+        "trips_ended": "28010",
+        "trips_started": "26913",
+        "trips_total": "54923",
+        "fpct_started": "0.2529",
+        "fpct_ended": "0.2412",
+        "fpct_total": "0.2469"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.00264,
+          40.73902
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "490",
+        "title": "8 Ave & W 33 St",
+        "trips_ended": "23377",
+        "trips_started": "29821",
+        "trips_total": "53198",
+        "fpct_started": "0.1438",
+        "fpct_ended": "0.1447",
+        "fpct_total": "0.1442"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.99393,
+          40.75155
+        ]
+      }
+    }
+  ]
+}

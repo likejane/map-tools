@@ -1,4 +1,4 @@
-station_id,name,lat,lng,trips_ended,trips_started,trips_total,fpct_started,fpct_ended,fpct_total
+station_id,title,lat,lng,trips_ended,trips_started,trips_total,fpct_started,fpct_ended,fpct_total
 497,E 17 St & Broadway,40.73705,-73.99009,43493,39987,83480,0.2608,0.2661,0.2636
 521,8 Ave & W 31 St,40.75045,-73.99481,38407,38953,77360,0.1545,0.1699,0.1621
 293,Lafayette St & E 8 St,40.73029,-73.99076,38028,38368,76396,0.2584,0.2564,0.2574
