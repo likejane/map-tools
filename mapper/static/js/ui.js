@@ -18,6 +18,7 @@ Mapper.ui = new function() {
 		'mapTitle': '#mapTitle',
 		'mapNotes': '#mapNotes',
 		'formInputs': '.form-input',
+		'savedPins': '#saved-pins'
 	};
 	this.templates = {};
 	this.events = {};
