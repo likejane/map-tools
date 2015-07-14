@@ -10,7 +10,7 @@ Mapper.generate = new function() {
 
     	Mapper.map_components.activeMarkerLayer = new L.mapbox.featureLayer().addTo(Mapper.map_components.map);
     	Mapper.map_components.storageMarkerLayer = new L.mapbox.featureLayer().addTo(Mapper.map_components.map);
-    	Mapper.generate.addListeners()
+    	Mapper.generate.addListeners();
 
 	}
 

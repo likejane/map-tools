@@ -49,7 +49,7 @@ Mapper.save = new function() {
 			url: "/api/maps",
 			data: _save.data,
 			success: _save.dataSaved
-    	});
+		});
 	}
 
 	this.dataSave = function() {
@@ -58,43 +58,23 @@ Mapper.save = new function() {
 
 	this.saveMarker = function() {
 
-		var markerJSON= Mapper.annotate.marker.toGeoJSON()
+		if (Mapper.annotate.marker) {
 
-		//Update properties on the marker
+			var markerJSON = Mapper.annotate.marker.toGeoJSON()
 
-		console.log(markerJSON);
-		markerJSON.properties.title = Mapper.ui.els.markerDesc.val()
-		console.log(markerJSON.properties);
-		L.mapbox.featureLayer(markerJSON).addTo(Mapper.map_components.storageMarkerLayer);
+			//Update properties on the marker
+			markerJSON.properties.title = Mapper.ui.els.markerDesc.val()
 
-
-/*
-		//if (lat != '') {
-		if (Mapper.annotate.marker){
-	    	var markerData = {
-	  			point: Mapper.annotate.marker.getLatLng(),
-	  			desc: Mapper.annotate.marker.title,
-	  			id: Mapper.save.markerIds
-			};
-
-			var output = Mustache.render("<div id='markerList{{id}}'><div class='markerListText'>{{id}} {{point}} {{desc}}</div> <div class='markerDeleteButton'>delete</div></div>", markerData);
-			Mapper.ui.els.markerList.append(output)
-			Mapper.ui.els.markerDesc.val('description')
-			Mapper.ui.els.markerLat.text('')
-			Mapper.ui.els.markerLng.text('')
-
-			Mapper.save.markerArray.push(_annotate.markerJSON)
-			Mapper.save.markerIds += 1
+			Mapper.map_components.activeMarkerLayer.removeLayer(Mapper.annotate.marker);
+			L.mapbox.featureLayer(markerJSON).addTo(Mapper.map_components.storageMarkerLayer);
 
 		} else {
 			alert('please doubleclick to select point')
-		}*/
-    }
+		}
 
-    this.saveJSON = function() {
 
-    	console.log(Mapper.map_components.map.featureLayer.toGeoJSON())
-    	console.log(Mapper.save.markerArray)
-    }
+
+	}
+
 
 }();
