@@ -4,10 +4,14 @@ Mapper.ui = new function() {
 	this.els = {};
 	this.selectors = {
 		'mapCreator': '#map-creator',
-		'createNewMap': '#createNewMapBtn',
-		'savePublish': '#savePublishBtn',
-		'cancelMap': '#cancelMapBtn',
-		'variable': '#css-selector'	
+		'testBtn': '#testbutton',
+		'markerLat': '#markerLat',
+		'markerLng': '#markerLng',
+		'markerDescField': '#markerDescField',
+		'markerSaveButton': '#markerSaveButton',
+		'markerDeleteButton': '.markerDeleteButton',
+		'markerList': '#markerList',
+		'saveJSONButton': '#saveJSONButton'
 	};
 	this.templates = {};
 	this.events = {};
@@ -24,8 +28,10 @@ Mapper.ui = new function() {
 	}
 
 	this.addEvents = function() {
-		_ui.els.createNewMap.click(_ui.openMapCreator);
-		_ui.els.cancelMap.click(_ui.closeMapCreator);
+		_ui.els.testBtn.click(_ui.toggleCreator);
+		_ui.els.markerSaveButton.click(Mapper.save.saveMarker);
+		_ui.els.markerDeleteButton.click();
+		_ui.els.saveJSONButton.click(Mapper.save.saveJSON);
 	}
 
 	this.openMapCreator = function() {
@@ -42,7 +48,7 @@ Mapper.ui = new function() {
 		_ui.els.savePublish.hide();
 		_ui.els.cancelMap.hide();
 		//_ui.els.mapCreator.addClass('animated slideInUp')
-	}	
+	}
 
 
 }();
