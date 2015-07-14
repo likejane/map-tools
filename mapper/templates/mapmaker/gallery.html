@@ -27,14 +27,14 @@
   <div id='map-creator' class="hide" style="width:100%;">
     <div class="clearfix pb4  border-bottom">
 
-  <div class="col md-col-6 xs-col-12 pr3">
+  <div class="col md-col-6 xs-col-12 pr3 form-wrapper">
     <label class="form-label">Title</label>
-    <input type="text" placeholder="Enter the title of your map" class="mb4 text-input block col-4 xs-col-12">
+    <input id="mapTitle" type="text" placeholder="Enter the title of your map" class="mb4 text-input block col-4 xs-col-12 form-input">
   </div>
 
-  <div class="col md-col-6 xs-col-12">
+  <div class="col md-col-6 xs-col-12 form-wrapper">
     <label class="form-label">Notes</label>
-    <input type="text" placeholder="Notes about the data, source, etc" class="text-input block col-4 xs-col-12">
+    <input id="mapNotes" type="text" placeholder="Notes about the data, source, etc" class="text-input block col-4 xs-col-12 form-input">
   </div>
 
   <div class="col col-12 mb2">
@@ -44,7 +44,7 @@
 
   <div class="col md-col-6 xs-col-12 pr3">
     <div class="full-width mb3 border-light">
-      <img src="http://lisacharlotterost.github.io/pic/141104_mapbox2.png" alt="">
+      <div id="map"></div>
     </div>
     <label class="form-label"><span class="regular text-gray--lightest mr1">Pin 1</span>(40.748441, -73.985664)</label>
     <input type="text" placeholder="Enter the description for pinpoint location" class="mr1 text-input col col-8">
