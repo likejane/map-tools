@@ -18,11 +18,6 @@ from rest_framework_bulk import (
     BulkUpdateModelMixin
 )
 
-from rest_framework_bulk import (
-    BulkCreateModelMixin,
-    BulkUpdateModelMixin
-)
-
 from api.models import Map, MapPoint
 from api.serializers import MapSerializer, MapPointSerializer, MapSerializerFullResponse
 
@@ -53,9 +48,9 @@ class MapViewSet(viewsets.ModelViewSet):
 
 
 class MapPointFilter(django_filters.FilterSet):
-	class Meta:
-		model = MapPoint
-		fields = ['map']
+    class Meta:
+        model = MapPoint
+        fields = ['map']
 
 
 class MapPointViewSet(viewsets.ModelViewSet,
