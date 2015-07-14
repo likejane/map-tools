@@ -25,7 +25,6 @@ class MapViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows maps to be viewed.
     """
-
     queryset = Map.objects.all()
 
     def get_serializer_class(self):
