@@ -16,7 +16,8 @@ Mapper.annotate = new function() {
     	_annotate.marker = new L.marker(e.latlng, {
     		draggable: true });
 
-    	Mapper.map_components.activeMarkerLayer.addLayer(_annotate.marker);
+    	_annotate.marker.addTo(Mapper.map_components.activeMarkerLayer);
+    	//Mapper.map_components.activeMarkerLayer.addLayer(_annotate.marker);
 
     	//_annotate.markerLatLng = newMarker.getLatLng();
     	//_annotate.markerJSON = newMarker.toGeoJSON();
