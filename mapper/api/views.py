@@ -17,12 +17,13 @@ class MapViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows maps to be viewed.
     """
-
     queryset = Map.objects.all()
 
     def get_serializer_class(self):
-        if 'full_response' in self.request.query_params:
-            return MapSerializerFullResponse
+        if 'include' in self.request.query_params:
+            includes = self.request.query_params['include']
+            if includes == 'points':
+                return MapSerializerFullResponse
         return MapSerializer
 
     @list_route()
