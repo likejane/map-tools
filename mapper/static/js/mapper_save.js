@@ -58,11 +58,13 @@ Mapper.save = new function() {
 
 	this.saveMarker = function() {
 
+		Mapper.annotate.marker
+
 		var lat = Mapper.ui.els.markerLat.text()
 		var lng = Mapper.ui.els.markerLng.text()
 		var desc = Mapper.ui.els.markerDescField.val()
 
-		_annotate.markerJSON.properties.title = desc
+		#_annotate.markerJSON.properties.title = desc
 
 		if (lat != '') {
 	    	var markerData = {
@@ -86,6 +88,8 @@ Mapper.save = new function() {
     }
 
     this.saveJSON = function() {
+
+    	console.log(Mapper.map_components.map.featureLayer.toGeoJSON())
     	console.log(Mapper.save.markerArray)
     }
 
