@@ -10,7 +10,8 @@ Mapper.ui = new function() {
 		'markerDescField': '#markerDescField',
 		'markerSaveButton': '#markerSaveButton',
 		'markerDeleteButton': '.markerDeleteButton',
-		'markerList': '#markerList'
+		'markerList': '#markerList',
+		'saveJSONButton': '#saveJSONButton'
 	};
 	this.templates = {};
 	this.events = {};
@@ -30,6 +31,7 @@ Mapper.ui = new function() {
 		_ui.els.testBtn.click(_ui.toggleCreator);
 		_ui.els.markerSaveButton.click(Mapper.save.saveMarker);
 		_ui.els.markerDeleteButton.click();
+		_ui.els.saveJSONButton.click(Mapper.save.saveJSON);
 	}
 
 	this.openMapCreator = function() {

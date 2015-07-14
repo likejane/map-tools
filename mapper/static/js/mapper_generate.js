@@ -7,7 +7,7 @@ Mapper.generate = new function() {
 		doubleClickZoom: false })
     	.setView([38.1089, 13.3545], 8);
 
-    	Mapper.map_components.markerGroup = new L.LayerGroup();
+    	//Mapper.map_components.markerGroup = new L.LayerGroup();
     	Mapper.generate.addListeners()
 
 	}

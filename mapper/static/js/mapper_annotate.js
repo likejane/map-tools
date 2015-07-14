@@ -2,6 +2,7 @@ Mapper.annotate = new function() {
 
 	_annotate = this;
 
+	this.markerLatLng = {};
 	this.markerJSON = {};
 
 	this.init = function() {
@@ -12,12 +13,12 @@ Mapper.annotate = new function() {
 
     	var newMarker = new L.marker(e.latlng, {
     		draggable: true })
-    		.addTo(Mapper.map_components.map);
+    		.addTo(Mapper.map_components.map.featureLayer);
 
-    	var m = newMarker.getLatLng();
+    	_annotate.markerLatLng = newMarker.getLatLng();
     	_annotate.markerJSON = newMarker.toGeoJSON();
-    	Mapper.ui.els.markerLat.text(m.lat)
-    	Mapper.ui.els.markerLng.text(m.lng)
+    	Mapper.ui.els.markerLat.text(_annotate.markerLatLng.lat)
+    	Mapper.ui.els.markerLng.text(_annotate.markerLatLng.lng)
 		}
 
 }();

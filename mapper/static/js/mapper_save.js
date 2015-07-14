@@ -1,7 +1,8 @@
 Mapper.save = new function() {
 
-	this.markerArray = []
-	this.markerIds = 0
+	_save = this;
+	this.markerArray = [];
+	this.markerIds = 0;
 
 	this.init = function() {
 
@@ -12,6 +13,8 @@ Mapper.save = new function() {
 		var lat = Mapper.ui.els.markerLat.text()
 		var lng = Mapper.ui.els.markerLng.text()
 		var desc = Mapper.ui.els.markerDescField.val()
+
+		_annotate.markerJSON.properties.title = desc
 
 		if (lat != '') {
 	    	var markerData = {
@@ -26,13 +29,16 @@ Mapper.save = new function() {
 			Mapper.ui.els.markerDescField.val('description')
 			Mapper.ui.els.markerLat.text('')
 			Mapper.ui.els.markerLng.text('')
-			alert(Mapper.annotate.markerJSON)
 
-			Mapper.save.markerArray.push(markerData)
+			Mapper.save.markerArray.push(_annotate.markerJSON)
 			Mapper.save.markerIds += 1
 		} else {
 			alert('please doubleclick to select point')
 		}
+    }
+
+    this.saveJSON = function() {
+    	console.log(Mapper.save.markerArray)
     }
 
 }();
