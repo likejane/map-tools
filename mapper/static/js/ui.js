@@ -4,7 +4,10 @@ Mapper.ui = new function() {
 	this.els = {};
 	this.selectors = {
 		'mapCreator': '#map-creator',
-		'testBtn': '#testbutton'	
+		'createNewMap': '#createNewMapBtn',
+		'savePublish': '#savePublishBtn',
+		'cancelMap': '#cancelMapBtn',
+		'variable': '#css-selector'	
 	};
 	this.templates = {};
 	this.events = {};
@@ -21,12 +24,25 @@ Mapper.ui = new function() {
 	}
 
 	this.addEvents = function() {
-		_ui.els.testBtn.click(_ui.toggleCreator);
+		_ui.els.createNewMap.click(_ui.openMapCreator);
+		_ui.els.cancelMap.click(_ui.closeMapCreator);
 	}
 
-	this.toggleCreator = function() {
-		_ui.els.mapCreator.slideToggle();
+	this.openMapCreator = function() {
+		_ui.els.mapCreator.slideDown(250);
+		_ui.els.createNewMap.hide();
+		_ui.els.savePublish.show();
+		_ui.els.cancelMap.show();
+		//_ui.els.mapCreator.addClass('animated slideInUp')
 	}
+
+	this.closeMapCreator = function() {
+		_ui.els.mapCreator.hide();
+		_ui.els.createNewMap.show();
+		_ui.els.savePublish.hide();
+		_ui.els.cancelMap.hide();
+		//_ui.els.mapCreator.addClass('animated slideInUp')
+	}	
 
 
 }();
