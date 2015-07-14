@@ -4,14 +4,6 @@ from rest_framework import viewsets
 from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework.decorators import list_route
-<<<<<<< HEAD
-
-from rest_framework_bulk import (
-    BulkCreateModelMixin,
-    BulkUpdateModelMixin
-)
-=======
->>>>>>> Add full response serializer and view
 
 from rest_framework_bulk import (
     BulkCreateModelMixin,
