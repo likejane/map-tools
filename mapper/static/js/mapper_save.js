@@ -70,27 +70,27 @@ Mapper.save = new function() {
 		console.log(xhr.status + ": " + xhr.responseText);
 	}
 
-	this.saveMarker = function() {
+	// this.saveMarker = function() {
 
-		if (Mapper.annotate.activeMarkerStatus == true) {
+	// 	if (Mapper.annotate.activeMarkerStatus == true) {
 
-			var markerJSON = Mapper.annotate.marker.toGeoJSON()
+	// 		var markerJSON = Mapper.annotate.marker.toGeoJSON()
 
-			//Update properties on the marker
-			markerJSON.properties.title = Mapper.ui.els.markerDesc.val()
+	// 		//Update properties on the marker
+	// 		markerJSON.properties.title = Mapper.ui.els.markerDesc.val()
 
-			Mapper.map_components.activeMarkerLayer.removeLayer(Mapper.annotate.marker);
-			Mapper.map_components.storageMarkerLayer.addData(markerJSON);
-			Mapper.annotate.activeMarkerStatus = false;
-
-
-		} else {
-			alert('please doubleclick to select point')
-		}
+	// 		Mapper.map_components.activeMarkerLayer.removeLayer(Mapper.annotate.marker);
+	// 		Mapper.map_components.storageMarkerLayer.addData(markerJSON);
+	// 		Mapper.annotate.activeMarkerStatus = false;
 
 
+	// 	} else {
+	// 		alert('please doubleclick to select point')
+	// 	}
 
-	}
+
+
+	// }
 
 
 
