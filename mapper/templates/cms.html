@@ -1,1 +1,34 @@
 {% extends "base.html" %}
+{% load staticfiles %}
+{% load compress %}
+
+{% block head %}
+<head>
+  <title>Mexican Drug Lord Escapes From Maximum Security Prison — Again</title>
+  {% compress css %}
+  <link rel="stylesheet" type="text/scss" href="{% static 'css/maps.scss' %}" />
+  {% endcompress %}
+</head>
+{% endblock %}
+
+{% block body %}
+
+<div class="clearfix full-width p2">
+  <a href="#" class="float-left">
+    <img class="col col-3" src="{% static 'images/logos/svgs/buzzfeed-full.svg' %}" width="300" />
+  </a>
+  <img src="http://s3-ak.buzzfeed.com/static/2015-05/8/15/user_images/webdr13/emilybrick-v2-29138-1431115121-28.jpg" alt="" class="float-right circle">
+</div>
+
+<div class="fill-orange p1 text-white text-center caps">DRAFT POST</div>
+
+<div class="fill-gray--lighter p2 clearfix">
+  <div class="col col-8"><a class="button button--primary col col-2" href="">Save</a></div>
+  <div class="float-right">
+    <a class="button button--secondary" href="">Preview</a>
+    <a class="button button--secondary" href="">Queue Post</a>
+    <a class="button button--primary" href="">Publish Now</a>
+  </div>
+</div>
+
+{% endblock %}
