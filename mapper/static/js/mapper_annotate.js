@@ -36,7 +36,6 @@ Mapper.annotate = new function() {
 
 	    	_annotate.marker.on('dragend', function(event) {
 	    	Mapper.ui.els.markerLoc.text(_annotate.marker.getLatLng().toString().substring(6))
-
     	})
 
 		} else {
