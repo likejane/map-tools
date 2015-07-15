@@ -67,7 +67,8 @@ Mapper.save = new function() {
 		}).done(_save.dataSaved);
 	}
 
-	this.saveData = function() {
+	this.saveData = function(r) {
+		console.log('Saved Data', r);
 		_save.saveMap();
 	}
 
