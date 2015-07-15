@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+{% load compress %}
+
+{% block head %}
+<head>
+  <title>Map Gallery</title>
+  {% compress css %}
+  <link rel="stylesheet" type="text/scss" href="{% static 'css/maps.scss' %}" />
+  {% endcompress %}
+</head>
+{% endblock %}
+
+{% block body %}
+<div class="mx-auto p2 wrapper">
+  <div class="col md-col-8 xs-col-12">
+    <h1 class="bold my2">Maps Hub</h1>
+    <p>Quisque laoreet porttitor est ac convallis. In molestie est vel tristique ultrices. Donec condimentum, metus ut facilisis commodo, ligula massa ultricies velit, sed mollis felis urna id est. Vivamus vehicula rhoncus mi vel imperdiet. Duis eu finibus nisl, pellentesque facilisis neque. </p>
+  </div>
+
+  <div class="col col-12 my3">
+    <a id="createNewMapBtn" class="button button--primary col md-col-2">Create A New Map</a>
+    <a id="savePublishBtn" class="hide button button--primary col md-col-2">Save and Publish</a>
+    <a id="cancelMapBtn" class="hide button button--secondary col md-col-2">Cancel</a>
+  </div>
+
+{% include "map-creator.html" %}
+
+
+</div>
+
+{% endblock %}
+
+
