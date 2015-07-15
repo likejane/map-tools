@@ -1,3 +1,4 @@
 secret.py
 *.pyc
 mapper/CACHE/*
+.sass-cache/*
