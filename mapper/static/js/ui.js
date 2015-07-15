@@ -18,6 +18,7 @@ Mapper.ui = new function() {
 		'mapTitle': '#mapTitle',
 		'mapNotes': '#mapNotes',
 		'formInputs': '.form-input',
+		'savedPins': '#saved-pins'
 	};
 	this.templates = {};
 	this.events = {};
@@ -34,7 +35,7 @@ Mapper.ui = new function() {
 	}
 
 	this.addEvents = function() {
-		_ui.els.markerSaveButton.click(Mapper.save.saveMarker);
+		_ui.els.markerSaveButton.click(Mapper.annotate.saveMarker);
 		_ui.els.markerDeleteButton.click();
 		_ui.els.createNewMap.click(_ui.openMapCreator);
 		_ui.els.cancelMap.click(_ui.closeMapCreator);

@@ -2,12 +2,12 @@
     <div class="clearfix pb4  border-bottom">
     <div class="col md-col-6 xs-col-12 pr3">
       <label class="form-label">Title</label>
-      <input type="text" placeholder="Enter the title of your map" class="mb4 text-input block col-4 xs-col-12">
+      <input id="mapTitle" type="text" placeholder="Enter the title of your map" class="mb4 text-input block col-4 xs-col-12">
     </div>
 
     <div class="col md-col-6 xs-col-12">
       <label class="form-label">Notes</label>
-      <input type="text" placeholder="Notes about the data, source, etc" class="text-input block col-4 xs-col-12">
+      <input id="mapNotes" type="text" placeholder="Notes about the data, source, etc" class="text-input block col-4 xs-col-12">
     </div>
 
     <div class="col col-12 mb2">
@@ -20,46 +20,19 @@
       <div class="full-width mb3 border-light">
         <div id="map"></div>
       </div>
-      <label class="form-label">
-        <div class="regular text-gray--lightest">Pin 1 <span class="ml1 bold text-gray" id='markerLat'></span> ,<span class="bold text-gray" id='markerLng'></span></div>
-      </label>
-      <input type="text" placeholder="Enter the description for pinpoint location" class="mr1 text-input col col-8">
-      <button class="button button--primary">Add Pin</button>
+      <label id="markerLoc" class="form-label"><span class="regular text-gray--lightest mr1">Pin 1</span></label>
+      <input id="markerDesc" type="text" placeholder="Enter the description for pinpoint location" class="mr1 text-input col col-8">
+      <button id="markerSaveBtn" class="button button--primary">Add Pin</button>
       <button class="button button--secondary">Cancel</button>
     </div>
 
 
-    <div class="col md-col-6 xs-col-12 type-5 p3 border rounded">
+    <div class="col md-col-6 xs-col-12 type-5">
+      <h4 class="bold mb2">Saved Pins</h4>
 
-      <div class="col col-12 border-bottom pb2 mb2 display-flex">
-        <div class="mr3 flex-1">
-          <p><span class="text-gray--lightest mr1">Pin 1</span>(40.748441, -73.985664)</p>
-          <p class="mt1">Vivamus vehicula rhoncus mi vel imperdiet. Duis eu finibus nisl, pellentesque facilisis neque. </p>
-        </div>
-        <div class="vertical-center">
-          <a href="#">Edit</a><span class="mx1">|</span><a href="#">Delete</a>
-        </div>
-      </div>
+    <div id="saved-pins"</div>
 
-      <div class="col col-12 border-bottom pb2 mb2 display-flex">
-        <div class="mr3 flex-1">
-          <p><span class="text-gray--lightest mr1">Pin 1</span>(40.748441, -73.985664)</p>
-          <p class="mt1">Vivamus vehicula rhoncus mi vel imperdiet. Duis eu finibus nisl, pellentesque facilisis neque. </p>
-        </div>
-        <div class="vertical-center">
-          <a href="#">Edit</a><span class="mx1">|</span><a href="#">Delete</a>
-        </div>
-      </div>
 
-      <div class="col col-12 display-flex">
-        <div class="mr3 flex-1">
-          <p><span class="text-gray--lightest mr1">Pin 1</span>(40.748441, -73.985664)</p>
-          <p class="mt1">Vivamus vehicula rhoncus mi vel imperdiet. Duis eu finibus nisl, pellentesque facilisis neque. </p>
-        </div>
-        <div class="vertical-center">
-          <a href="#">Edit</a><span class="mx1">|</span><a href="#">Delete</a>
-        </div>
-      </div>
 
     </div>
 
