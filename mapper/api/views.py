@@ -2,6 +2,7 @@ import django_filters
 
 from rest_framework import viewsets
 from rest_framework import generics
+from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.decorators import list_route
 
@@ -25,6 +26,23 @@ class MapViewSet(viewsets.ModelViewSet):
             if includes == 'points':
                 return MapSerializerFullResponse
         return MapSerializer
+
+
+    def create(self, request, *args, **kwargs):
+        print request.data
+        points = request.data.pop('points')
+        print request.data
+        map_serializer = MapSerializer(data=request.data)
+        if map_serializer.is_valid():
+            map_serializer.save()
+            point_serializer = MapPointSerializer(data=points['features'])
+            if point_serializer.is_valid():
+                point_serializer.save()
+            print point_serializer.errors
+
+
+            return Response(map_serializer.data, status=status.HTTP_201_CREATED)
+        return Response(map_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     @list_route()
     def recent_maps(self, request):

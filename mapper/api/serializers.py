@@ -15,6 +15,7 @@ class MapPointSerializer(BulkSerializerMixin,GeoFeatureModelSerializer):
         geo_field = "point"
         list_serializer_class=BulkListSerializer
 
+
 class MapSerializerFullResponse(serializers.ModelSerializer):
     points = MapPointSerializer(many=True, read_only=True)
     class Meta:
