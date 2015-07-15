@@ -14,6 +14,7 @@ var Mapper = new function() {
 
 	this.init = function() {
 		Mapper.ui.init();
+		Mapper.gallery.init();
 	}
 
 
