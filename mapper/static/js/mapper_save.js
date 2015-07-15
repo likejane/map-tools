@@ -9,6 +9,8 @@ Mapper.save = new function() {
 	this.init = function() {
 		if (!_save.validateFields()) return false;
 		_save.collectData();
+		_save.saveData();
+		console.log(_save.data);
 	}
 
 	this.validateFields = function() {
@@ -20,7 +22,6 @@ Mapper.save = new function() {
 				field_el.parent().addClass('form-error');
 			}
 		});
-
 		return valid;
 	}
 
@@ -33,8 +34,12 @@ Mapper.save = new function() {
 			}
 		});
 
-		// Get map data
-		// ?????
+
+		_save.data.name = _save.data[0];
+		_save.data.notes = _save.data[1];
+		_save.data.points = Mapper.map_components.storageMarkerLayer.toGeoJSON();
+
+
 	}
 
 
@@ -45,10 +50,14 @@ Mapper.save = new function() {
 	 * - geojson
 	 */
 	this.saveData = function() {
+		console.log("trying to save");
 		$.ajax({
-			url: "/api/maps",
-			data: _save.data,
-			success: _save.dataSaved
+			url: "/api/maps/",
+			data: JSON.stringify(_save.data),
+			type: "POST",
+			contentType: "application/json",
+			success: _save.dataSaved,
+			error: _save.dataError
 		});
 	}
 
@@ -56,6 +65,10 @@ Mapper.save = new function() {
 		alert('DATA SAVED!')
 	}
 
+	this.dataError = function(xhr,errmsg,err) {
+		alert('NO SAVE!');
+		console.log(xhr.status + ": " + xhr.responseText);
+	}
 	this.saveMarker = function() {
 
 		if (Mapper.annotate.marker) {
