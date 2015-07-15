@@ -10,6 +10,7 @@ var Mapper = new function() {
 		activeMarkerLayer: null,
 		storageMarkerLayer: null
 	}
+	this.map_id;
 
 	this.init = function() {
 		Mapper.ui.init();
