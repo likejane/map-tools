@@ -1,15 +1,15 @@
 Mapper.annotate = new function() {
-	_annotate = this;
+    _annotate = this;
 
-	this.marker;
-	this.activeMarkerStatus = false;
-	this.markerCounter = 1;
+    this.marker;
+    this.activeMarkerStatus = false;
+    this.markerCounter = 1;
 
-  	this.markerLatLng = {};
-  	this.markerJSON = {};
+    this.markerLatLng = {};
+    this.markerJSON = {};
 
-  	this.pinTemplate = '\
-	<div class="col col-12 border-bottom pb1 mb2 display-flex">\
+    this.pinTemplate = '\
+    <div class="col col-12 border-bottom pb1 mb2 display-flex">\
         <div class="mr3 flex-1">\
           <p><span class="text-gray--lightest mr1">Pin {{properties.marker_id}}</span>({{geometry.coordinates}})</p>\
           <p class="mt1">{{properties.title}}</p>\
@@ -19,14 +19,14 @@ Mapper.annotate = new function() {
         </div>\
       </div>';
 
-	this.init = function() {
+    this.init = function() {
 
-  	}
+    }
 
-  	this.addMarker = function(e) {
+    this.addMarker = function(e) {
 
-		if (_annotate.activeMarkerStatus == false) {
-	    	_annotate.marker = new L.marker(e.latlng, {
+        if (_annotate.activeMarkerStatus == false) {
+            _annotate.marker = new L.marker(e.latlng, {
 	    		draggable: true });
 
 	    	_annotate.marker.addTo(Mapper.map_components.activeMarkerLayer);
