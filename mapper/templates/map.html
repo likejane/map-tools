@@ -1,5 +1,30 @@
 {% extends "base.html" %}
 
+{% load staticfiles %}
+{% load compress %}
+
+{% block head %}
+<head>
+  <title>Map</title>
+  {% compress css %}
+  <link rel="stylesheet" type="text/scss" href="{% static 'css/maps.scss' %}" />
+  {% endcompress %}
+</head>
+{% endblock %}
+
+
+
 {% block body %}
+
+  <div class="col col-12 my3">
+    <a id="createNewMapBtn" class="button button--primary col md-col-2">Edit this Map</a>
+    <a id="savePublishBtn" class="hide button button--primary col md-col-2">Save and Publish</a>
+    <a id="cancelMapBtn" class="hide button button--secondary col md-col-2">Cancel</a>
+  </div>
+
+  <div class="mx-auto p2 wrapper">
+   <div id='map-creator'style="width:100%;">
 {% include "map-creator.html" %}
+</div>
+</div>
 {% endblock %}
