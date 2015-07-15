@@ -7,8 +7,9 @@ Mapper.ui = new function() {
 		'testBtn': '#testbutton',
 		'markerLat': '#markerLat',
 		'markerLng': '#markerLng',
-		'markerDescField': '#markerDescField',
-		'markerSaveButton': '#markerSaveButton',
+		'markerLoc': '#markerLoc',
+		'markerDesc': '#markerDesc',
+		'markerSaveButton': '#markerSaveBtn',
 		'markerDeleteButton': '.markerDeleteButton',
 		'markerList': '#markerList',
 		'saveJSONButton': '#saveJSONButton',
@@ -70,7 +71,7 @@ Mapper.ui = new function() {
 		_ui.els.createNewMap.show();
 		_ui.els.savePublish.hide();
 		_ui.els.cancelMap.hide();
-	}	
+	}
 
 
 }();

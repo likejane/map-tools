@@ -47,9 +47,9 @@ Mapper.save = new function() {
 	this.saveData = function() {
 		$.ajax({
 			url: "/api/maps",
-			data: _save.data, 
+			data: _save.data,
 			success: _save.dataSaved
-    	});
+		});
 	}
 
 	this.dataSave = function() {
@@ -58,35 +58,24 @@ Mapper.save = new function() {
 
 	this.saveMarker = function() {
 
-		var lat = Mapper.ui.els.markerLat.text()
-		var lng = Mapper.ui.els.markerLng.text()
-		var desc = Mapper.ui.els.markerDescField.val()
+		if (Mapper.annotate.marker) {
 
-		_annotate.markerJSON.properties.title = desc
+			var markerJSON = Mapper.annotate.marker.toGeoJSON()
 
-		if (lat != '') {
-	    	var markerData = {
-	  			lat: lat,
-	  			lng: lng,
-	  			desc: desc,
-	  			id: Mapper.save.markerIds
-			};
+			//Update properties on the marker
+			markerJSON.properties.title = Mapper.ui.els.markerDesc.val()
 
-			var output = Mustache.render("<div id='markerList{{id}}'><div class='markerListText'>{{id}} {{lat}} {{lng}} {{desc}}</div> <div class='markerDeleteButton'>delete</div></div>", markerData);
-			Mapper.ui.els.markerList.append(output)
-			Mapper.ui.els.markerDescField.val('description')
-			Mapper.ui.els.markerLat.text('')
-			Mapper.ui.els.markerLng.text('')
+			Mapper.map_components.activeMarkerLayer.removeLayer(Mapper.annotate.marker);
+			Mapper.map_components.storageMarkerLayer.addData(markerJSON);
 
-			Mapper.save.markerArray.push(_annotate.markerJSON)
-			Mapper.save.markerIds += 1
+
 		} else {
 			alert('please doubleclick to select point')
 		}
-    }
 
-    this.saveJSON = function() {
-    	console.log(Mapper.save.markerArray)
-    }
+
+
+	}
+
 
 }();
