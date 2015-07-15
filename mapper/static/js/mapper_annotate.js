@@ -3,6 +3,7 @@ Mapper.annotate = new function() {
 
 	this.marker;
 	this.activeMarkerStatus = false;
+	this.markerCounter = 1;
 
   	this.markerLatLng = {};
   	this.markerJSON = {};
@@ -10,7 +11,7 @@ Mapper.annotate = new function() {
   	this.pinTemplate = '\
 	<div class="col col-12 border-bottom pb1 mb2 display-flex">\
         <div class="mr3 flex-1">\
-          <p><span class="text-gray--lightest mr1">Pin 1</span>({{geometry.coordinates}})</p>\
+          <p><span class="text-gray--lightest mr1">Pin {{properties.marker_id}}</span>({{geometry.coordinates}})</p>\
           <p class="mt1">{{properties.title}}</p>\
         </div>\
         <div class="vertical-center">\
@@ -32,15 +33,15 @@ Mapper.annotate = new function() {
 
 	    	_annotate.activeMarkerStatus = true;
 
-	    	Mapper.ui.els.markerLoc.text(_annotate.marker.getLatLng())
+	    	Mapper.ui.els.markerLoc.text(_annotate.marker.toGeoJSON().geometry.coordinates.join(', '))
 
 	    	_annotate.marker.on('dragend', function(event) {
-	    	Mapper.ui.els.markerLoc.text(_annotate.marker.getLatLng().toString().substring(6))
+	    	Mapper.ui.els.markerLoc.text(_annotate.marker.toGeoJSON().geometry.coordinates.join(', '))
     	})
 
 		} else {
 			_annotate.marker.setLatLng(e.latlng)
-			Mapper.ui.els.markerLoc.text(_annotate.marker.getLatLng().toString().substring(6))
+			Mapper.ui.els.markerLoc.text(_annotate.marker.toGeoJSON().geometry.coordinates.join(', '))
 		}
 
 	}
@@ -55,6 +56,7 @@ Mapper.annotate = new function() {
 
 	     	//Update properties on the marker
 	     	markerJSON.properties.title = Mapper.ui.els.markerDesc.val()
+	     	markerJSON.properties.marker_id = _annotate.markerCounter
 
 	      	Mapper.map_components.activeMarkerLayer.removeLayer(Mapper.annotate.marker);
 	      	Mapper.map_components.storageMarkerLayer.addData(markerJSON);
@@ -62,7 +64,8 @@ Mapper.annotate = new function() {
 	      	_annotate.addPinTemplate(markerJSON);
 
 	      	_annotate.activeMarkerStatus = false;
-	    	Mapper.ui.els.markerLoc.text(_annotate.marker.getLatLng())
+	      	_annotate.markerCounter += 1;
+	    	Mapper.ui.els.markerLoc.text('');
 
 	    } else {
 	    	alert('please doubleclick to select point')
