@@ -10,7 +10,6 @@ Mapper.save = new function() {
 		if (!_save.validateFields()) return false;
 		_save.collectData();
 		_save.saveData();
-		console.log(_save.data);
 	}
 
 	this.validateFields = function() {
@@ -23,7 +22,7 @@ Mapper.save = new function() {
 			}
 		});
 		return valid;
-	}
+	};
 
 	this.collectData = function() {
 		// Get input fields
@@ -34,41 +33,46 @@ Mapper.save = new function() {
 			}
 		});
 
-
+		if (this.map_id){
+			_save.data.id = this.map_id;
+		}
 		_save.data.name = _save.data[0];
 		_save.data.notes = _save.data[1];
 		_save.data.points = Mapper.map_components.storageMarkerLayer.toGeoJSON();
-
-
 	}
 
 
-	/*
-	 * title
-	 * notes
-	 * points
-	 * - geojson
-	 */
-	this.saveData = function() {
-		console.log("trying to save");
+	this.saveMap = function(){
+		console.log("save map");
 		$.ajax({
 			url: "/api/maps/",
-			data: JSON.stringify(_save.data),
+			data: JSON.stringify(_save.data), //passes the points but they're actually ignored rn.
+			type: "POST",
+			contentType: "application/json"
+		}).done(_save.savePoints);
+	}
+
+	this.savePoints = function(data){
+		if (data){// get map id from POST to /maps/ endpoint.
+			Mapper.map_id = data.id;
+			_save.data.points.features.forEach(function(d){d.properties.map = Mapper.map_id});
+		}
+		console.log("save points");
+		$.ajax({
+			url: "/api/mappoints/",
+			data: JSON.stringify(_save.data.points.features),
 			type: "POST",
 			contentType: "application/json",
-			success: _save.dataSaved,
-			error: _save.dataError
-		});
+			done: _save.dataSaved
+		}).done(_save.dataSaved);
 	}
 
-	this.dataSave = function() {
-		alert('DATA SAVED!')
+	this.saveData = function() {
+		_save.saveMap();
 	}
 
-	this.dataError = function(xhr,errmsg,err) {
-		alert('NO SAVE!');
-		console.log(xhr.status + ": " + xhr.responseText);
+	this.dataSaved = function(data) {
+		console.log(data);
 	}
-
 
 }();
