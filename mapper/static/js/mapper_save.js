@@ -71,5 +71,4 @@ Mapper.save = new function() {
 	}
 
 
-
 }();
