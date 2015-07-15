@@ -47,7 +47,6 @@ Mapper.annotate = new function() {
 	}
 
 
-
   	this.saveMarker = function() {
 
 	    if (_annotate.activeMarkerStatus == true) {
