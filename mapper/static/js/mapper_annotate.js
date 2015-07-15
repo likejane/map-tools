@@ -45,6 +45,7 @@ Mapper.annotate = new function() {
 	}
 
 
+
   	this.saveMarker = function() {
 
 	    if (_annotate.activeMarkerStatus == true) {
@@ -71,5 +72,6 @@ Mapper.annotate = new function() {
     	var output = Mustache.render(this.pinTemplate, marker);
     	Mapper.ui.els.savedPins.append(output);
   	};
+
 
 }();
