@@ -69,26 +69,7 @@ Mapper.save = new function() {
 		alert('NO SAVE!');
 		console.log(xhr.status + ": " + xhr.responseText);
 	}
-	this.saveMarker = function() {
 
-		if (Mapper.annotate.marker) {
-
-			var markerJSON = Mapper.annotate.marker.toGeoJSON()
-
-			//Update properties on the marker
-			markerJSON.properties.title = Mapper.ui.els.markerDesc.val()
-
-			Mapper.map_components.activeMarkerLayer.removeLayer(Mapper.annotate.marker);
-			Mapper.map_components.storageMarkerLayer.addData(markerJSON);
-
-
-		} else {
-			alert('please doubleclick to select point')
-		}
-
-
-
-	}
 
 
 }();
