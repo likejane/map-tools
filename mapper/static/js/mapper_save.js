@@ -73,6 +73,7 @@ Mapper.save = new function() {
 
 	this.dataSaved = function(data) {
 		console.log(data);
+		Mapper.ui.closeMapCreator();
 	}
 
 }();
