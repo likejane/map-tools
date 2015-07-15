@@ -72,7 +72,7 @@ Mapper.save = new function() {
 
 	this.saveMarker = function() {
 
-		if (Mapper.annotate.marker) {
+		if (Mapper.annotate.activeMarkerStatus == true) {
 
 			var markerJSON = Mapper.annotate.marker.toGeoJSON()
 

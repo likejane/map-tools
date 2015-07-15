@@ -25,23 +25,25 @@ Mapper.annotate = new function() {
   	this.addMarker = function(e) {
 
 		if (_annotate.activeMarkerStatus == false) {
-    	_annotate.marker = new L.marker(e.latlng, {
-    		draggable: true });
+	    	_annotate.marker = new L.marker(e.latlng, {
+	    		draggable: true });
 
-    	_annotate.marker.addTo(Mapper.map_components.activeMarkerLayer);
+	    	_annotate.marker.addTo(Mapper.map_components.activeMarkerLayer);
 
-    	_annotate.activeMarkerStatus = true;
+	    	_annotate.activeMarkerStatus = true;
 
-    	Mapper.ui.els.markerLoc.text(_annotate.marker.getLatLng())
+	    	Mapper.ui.els.markerLoc.text(_annotate.marker.getLatLng())
 
-    	_annotate.marker.on('dragend', function(event) {
-    		Mapper.ui.els.markerLoc.text(_annotate.marker.getLatLng().toString().substring(6))
+	    	_annotate.marker.on('dragend', function(event) {
+	    	Mapper.ui.els.markerLoc.text(_annotate.marker.getLatLng().toString().substring(6))
+
     	})
 
 		} else {
 			_annotate.marker.setLatLng(e.latlng)
 			Mapper.ui.els.markerLoc.text(_annotate.marker.getLatLng().toString().substring(6))
 		}
+
 	}
 
 
