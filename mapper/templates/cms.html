@@ -1,1 +1,106 @@
 {% extends "base.html" %}
+{% load staticfiles %}
+{% load compress %}
+
+{% block head %}
+<head>
+  <title>Mexican Drug Lord Escapes From Maximum Security Prison — Again</title>
+  {% compress css %}
+  <link rel="stylesheet" type="text/scss" href="{% static 'css/maps.scss' %}" />
+  {% endcompress %}
+</head>
+{% endblock %}
+
+{% block body %}
+
+<div class="clearfix full-width p2">
+  <a href="#" class="float-left">
+    <img class="col col-3" src="{% static 'images/logos/svgs/buzzfeed-full.svg' %}" width="300" />
+  </a>
+  <img src="http://s3-ak.buzzfeed.com/static/2015-05/8/15/user_images/webdr13/emilybrick-v2-29138-1431115121-28.jpg" alt="" class="float-right circle">
+</div>
+
+<div class="fill-orange p1 text-white text-center caps">DRAFT POST</div>
+
+<div class="fill-gray--lighter p2 clearfix">
+  <a class="button button--primary col md-col-1 sm-col-2 float-left" href="">Save</a>
+  <div class="float-right">
+    <a class="button button--secondary" href="">Preview</a>
+    <a class="button button--secondary" href="">Queue Post</a>
+    <a class="button button--primary" href="">Publish Now</a>
+  </div>
+</div>
+
+<div class="py4 clearfix">
+  <div class="col col-6 pr4 offset-2">
+    <a href="#" class="type-3 link-gray bold mr2">Standard</a>
+    <a href="#" class="type-3 bold mr2">US Home</a>
+    <a href="#" class="type-3 bold mr2">UK/AU Home</a>
+    <div class="float-right type-6 mt1">
+      <span class="text-gray--lighter mr1">Sort Mode: Off</span>
+      <span class="text-gray--lighter">Helper Mode: On</span>
+    </div>
+    
+    <div class="my2">
+      <input type="text" class="mb2 col col-12 text-input" placeholder="Title">
+      
+      <textarea class="textarea mb2 col col-12" placeholder="Description"></textarea> 
+
+      <input type="checkbox" class="checkbox" id="check_1" value="check_1" name="checkboxes">
+      <label for="check_1" class="text-gray--lightest">Replace description with bulleted summary on article page</label>
+    </div>
+
+    <img src="http://s3-ak.buzzfeed.com/static/2015-05/8/15/user_images/webdr13/emilybrick-v2-29138-1431115121-28.jpg" alt="" class="circle col col-1">
+    <div class="ml1 py1 col col-10">
+      <a href="#" class="bold">Emily Brick</a>
+      <p class="type-5 text-gray--lighter">BuzzFeed Staff</p>
+    </div>
+
+<!-- subbuzz-wrapper -->
+    <div class="subbuzz-wrapper mt3 col col-12 fill-gray--lighter border--lighter p3">
+      <div class="border-bottom--lighter pb2">
+        <a href="#" class="text-gray--lighter mr2 bold">Text</a>
+        <a href="#" class="text-gray--lighter mr2 bold">Image</a>
+        <a href="#" class="text-gray--lighter mr2 bold">Embed</a>
+        <a href="#" class="text-gray--lighter mr2 bold">Link</a>
+        <a href="#" class="text-gray--lighter mr2 bold">Quiz</a>
+        <span class="inline-block more-post-types">
+          <a href="#" class="text-gray--lighter mr2 bold more-post-types">More</a>
+          <div class="fill-white p2 col col-3 offset-5 border more-menu">
+            <ul class="list-unstyled">
+              <li class="mb1"><a href="#" class="bold type-5">Update</a></li>
+              <li class="mb1"><a href="#" class="bold type-5">Photo Slider</a></li>
+              <li class="mb1"><a href="#" class="bold type-5">Chart</a></li>
+              <li class="mb1"><a href="#" class="bold type-5">Maps</a></li>
+              <li><a href="#" class="bold type-5">Correction</a></li>
+            </ul>
+          </div>
+        </span>
+        <a href="#" class="text-gray--lighter float-right caps">Wire</a>
+      </div>
+
+      <input type="text" class="border--lighter mt3 col col-12 text-input" placeholder="Start writing, drag an image, add a URL, embed, or select a format above">
+    </div>
+<!-- end subbuzz-wrapper -->
+
+
+<!-- maps subbuzz type: this div should appear inside .subbuzz-wrapper when the user clicks on the "maps" -->
+    <div class="col col-12 fill-gray--lighter pr3 pt3 pb3">
+      <h2 class="mb3">Add a Map</h2>
+      <label class="form-label">Paste Your Map ID Here</label>
+      <input type="text" class="text-input">
+      <button class="button button--primary">Add Map</button>
+      <div class="mt3">Don't Know Your Map ID?<a href="#"> Find or choose a map here</a></div>
+    </div>
+<!-- end maps subbuzz type" --> 
+
+  </div>
+
+
+  <div class="col col-4">
+    <img src="https://dl.dropboxusercontent.com/u/2085664/Screenshot%202015-07-15%2008.52.54.png" alt="">
+  </div>
+</div>
+
+
+{% endblock %}
