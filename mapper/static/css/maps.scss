@@ -166,6 +166,18 @@ body {
   }
 }
 
+#add-map {
+	display: none;
+}
+
+#subbuzz-wrapper.show-maps #add-map {
+  display: block;
+}
+
+#subbuzz-wrapper.show-maps #omni-text {
+  display: none;
+}
+
 
 
 
