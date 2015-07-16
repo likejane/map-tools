@@ -21,13 +21,6 @@ from rest_framework import routers
 
 from api import views
 
-router = routers.DefaultRouter()
-router.register(r'maps', views.MapViewSet)
-router.register(r'mappoints', views.MapPointViewSet)
-
-
-
-
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
