@@ -19,7 +19,8 @@ Mapper.ui = new function() {
 		'mapNotes': '#mapNotes',
 		'formInputs': '.form-input',
 		'savedPins': '#saved-pins',
-		'mapGrid': '#map-grid'
+		'mapGrid': '#map-grid',
+		'editMapBtn': '.edit-map-btn' 
 	};
 	this.templates = {};
 	this.events = {};
