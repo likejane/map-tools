@@ -11,7 +11,7 @@ Mapper.view = new function() {
 			function(data) {
 				console.log(data);
         Mapper.ui.els.mapTitle.text(data.name);
-        Mapper.ui.els.Notes.text(data.notes);
+        Mapper.ui.els.mapNotes.text(data.notes);
   			});
 	}
 
