@@ -5,17 +5,19 @@ Mapper.annotate = new function() {
 	this.activeMarkerStatus = false;
 	this.markerCounter = 1;
 
+	this.data = {};
+
   	this.markerLatLng = {};
   	this.markerJSON = {};
 
   	this.pinTemplate = '\
-	<div class="col col-12 border-bottom pb1 mb2 display-flex">\
+	<div data-id="{{properties.marker_id}}" class="col col-12 border-bottom pb1 mb2 display-flex">\
         <div class="mr3 flex-1">\
           <p><span class="text-gray--lightest mr1">Pin {{properties.marker_id}}</span>({{geometry.coordinates}})</p>\
           <p class="mt1">{{properties.title}}</p>\
         </div>\
         <div class="vertical-center">\
-          <a href="#">Edit</a><span class="mx1">|</span><a href="#">Delete</a>\
+          <button class="markerEditBtn">Edit</button><span class="mx1">|</span><button class="markerDeleteBtn">Delete</button>\
         </div>\
       </div>';
 
@@ -66,6 +68,9 @@ Mapper.annotate = new function() {
 	      	_annotate.activeMarkerStatus = false;
 	      	_annotate.markerCounter += 1;
 	    	Mapper.ui.els.markerLoc.text('');
+	    	// Mapper.ui.selectEls();
+	    	// _annotate.addEvents();
+
 
 	    } else {
 	    	alert('please doubleclick to select point')
@@ -77,5 +82,26 @@ Mapper.annotate = new function() {
     	Mapper.ui.els.savedPins.append(output);
   	};
 
+  	// this.addEvents = function() {
+  	// 	_ui.els.markerDeleteBtn.click(_annotate.deleteMarker());
+  	// 	_ui.els.markerEditBtn.click(_annotate.editMarker());
+  	// };
+
+  	this.deleteMarker = function(event) {
+  		markerID = $(event.currentTarget).parent().parent().attr('data-id');
+		_annotate.data.points = Mapper.map_components.storageMarkerLayer.toGeoJSON()
+		_annotate.data.points.features = _annotate.data.points.features
+               .filter(function (el) {
+                        return el.properties.marker_id !== parseInt(markerID);
+                       });
+		Mapper.map_components.storageMarkerLayer.clearLayers()
+		Mapper.map_components.storageMarkerLayer.addData(_annotate.data.points)
+		$(event.currentTarget).parent().parent().remove();
+  	};
+
+  	this.editMarker = function(event) {
+  		markerID = $(event.currentTarget).parent().parent().attr('data-id');
+  		console.log(markerID)
+  	}
 
 }();

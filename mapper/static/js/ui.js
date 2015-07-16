@@ -10,7 +10,8 @@ Mapper.ui = new function() {
 		'markerLoc': '#markerLoc',
 		'markerDesc': '#markerDesc',
 		'markerSaveButton': '#markerSaveBtn',
-		'markerDeleteButton': '.markerDeleteButton',
+		// 'markerDeleteBtn': '.markerDeleteBtn',
+		// 'markerEditBtn': '.markerEditBtn',
 		'markerList': '#markerList',
 		'createNewMap': '#createNewMapBtn',
 		'savePublish': '#savePublishBtn',
@@ -28,6 +29,12 @@ Mapper.ui = new function() {
 	this.init = function() {
 		_ui.selectEls();
 		_ui.addEvents();
+		$(document).on("click", ".markerDeleteBtn", function(event) {
+			Mapper.annotate.deleteMarker(event);
+		});
+		$(document).on("click", ".markerEditBtn", function(event) {
+			Mapper.annotate.editMarker(event);
+		});
 	}
 
 	this.selectEls = function() {
@@ -38,7 +45,6 @@ Mapper.ui = new function() {
 
 	this.addEvents = function() {
 		_ui.els.markerSaveButton.click(Mapper.annotate.saveMarker);
-		_ui.els.markerDeleteButton.click();
 		_ui.els.createNewMap.click(_ui.openMapCreator);
 		_ui.els.cancelMap.click(_ui.closeMapCreator);
 		_ui.els.savePublish.click(Mapper.save.init);
