@@ -3,11 +3,11 @@ Mapper.gallery = new function() {
 	_gallery = this;
 
 	this.galleryTemplate = '\
-	<div data-id="{{id}}" data-name="{{name}}" data-notes="{{notes}}"  style="width: 200px">\
-		<span>{{name}}</span>\
+	<div data-id="{{id}}" data-name="{{name}}" data-notes="{{notes}}"  class="col col-2 mr2 mb3">\
+		<span class="bold block mb1">{{name}}</span>\
 		<div style="width: 100%; height: 100px; background-color:gray;"></div>\
-		<div style="padding:10px; margin: 10px 0; border-radius:5px;width: 100%; border: 1px solid blue;">Copy Map Id Code</div>\
-		<div class="edit-map-btn" style="padding:10px; margin: 10px 0; border-radius:5px;width: 100%; border: 1px solid blue;">Edit Map</div>\
+		<span class="button button--primary full-width mt1">Copy ID</span>\
+    <span class="edit-map-btn button button--secondary full-width mt1">Edit Map</span>\
       </div>';
 
 
