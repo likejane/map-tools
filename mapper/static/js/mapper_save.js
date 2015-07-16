@@ -4,6 +4,7 @@ Mapper.save = new function() {
 	this.markerArray = [];
 	this.markerIds = 0;
 	this.data = {};
+	this.newMap = false;
 	this.fields = ['mapTitle', 'mapNotes'];
 
 	this.init = function() {
@@ -43,13 +44,24 @@ Mapper.save = new function() {
 
 
 	this.saveMap = function(){
-		console.log("save map");
-		$.ajax({
+		if (Mapper.map_id){
+			$.ajax({
+			url: "/api/maps/".concat(Mapper.map_id),
+			data: JSON.stringify(_save.data), //passes the points but they're actually ignored rn.
+			type: "PUT",
+			contentType: "application/json"
+		}).done(_save.savePoints);
+		}
+		else {
+			this.newMap = true;
+			$.ajax({
 			url: "/api/maps/",
 			data: JSON.stringify(_save.data), //passes the points but they're actually ignored rn.
 			type: "POST",
 			contentType: "application/json"
 		}).done(_save.savePoints);
+
+		}
 	}
 
 	this.savePoints = function(data){
@@ -61,7 +73,7 @@ Mapper.save = new function() {
 		console.log(_save.data.points);
 		$.ajax({
 			url: "/api/mappoints/",
-			data: JSON.stringify(_save.data.points),
+			data: JSON.stringify(_save.data.points.features),
 			type: "POST",
 			contentType: "application/json",
 			done: _save.dataSaved

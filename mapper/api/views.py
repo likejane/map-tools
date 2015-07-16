@@ -27,7 +27,7 @@ class MapViewSet(viewsets.ModelViewSet):
                 return MapSerializerFullResponse
         return MapSerializer
 
-
+    """
     def create(self, request, *args, **kwargs):
         print request.data
         points = request.data.pop('points')
@@ -43,6 +43,8 @@ class MapViewSet(viewsets.ModelViewSet):
 
             return Response(map_serializer.data, status=status.HTTP_201_CREATED)
         return Response(map_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    """
+
 
     @list_route()
     def recent_maps(self, request):
