@@ -56,15 +56,12 @@ Mapper.annotate = new function() {
             markerJSON.properties.title = Mapper.ui.els.markerDesc.val()
 
             // choose different behavior if editing or adding
-            console.log(_annotate.existingMarkerID);
 
             if (_annotate.existingMarkerID != null) {
                 markerJSON.properties.marker_id = parseInt(_annotate.existingMarkerID);
                 _annotate.existingMarkerID = null;
                 _annotate.editPinTemplate(markerJSON);
             } else {
-                console.log("new marker");
-                console.log(Mapper.generate.markerCounter);
                 markerJSON.properties.marker_id = Mapper.generate.markerCounter;
                 Mapper.generate.markerCounter += 1;
                 _annotate.addPinTemplate(markerJSON);

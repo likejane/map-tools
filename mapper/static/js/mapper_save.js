@@ -44,8 +44,6 @@ Mapper.save = new function() {
 
 
 	this.saveMap = function(){
-		console.log(JSON.stringify(_save.data));
-		console.log(Mapper.map_id)
 		if (Mapper.map_id){
 			$.ajax({
 			url: "/api/maps/".concat(Mapper.map_id),

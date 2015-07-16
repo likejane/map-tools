@@ -42,15 +42,12 @@ def update_or_create_points(map_id, data):
                      marker_id=p['properties']['marker_id'],
                      point = Point(*p['geometry']['coordinates']))
             epoint.save()
-            print "point created"
-            print epoint
         else: #UPDATE
             epoint = MapPoint.objects.get(id=p['id'])
             epoint.title = p['properties']['title']
             epoint.marker_id=p['properties']['marker_id']
             epoint.point = Point(*p['geometry']['coordinates'])
             epoint.save()
-            print "point updated"
         ids.append(epoint.id)
         print ids
 
