@@ -38,7 +38,7 @@ Mapper.generate = new function() {
 			url: "/api/maps/"+Mapper.map_id,}).done(
 				function(data) {
 
-					_generate.markerCounter = data.length + 1;
+					_generate.markerCounter = data.points.length + 1;
 
 					Mapper.map_components.storageMarkerLayer.addData(data.points);
 					var markers = data.points
