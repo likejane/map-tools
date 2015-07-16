@@ -6,6 +6,7 @@ Mapper.annotate = new function() {
 	this.markerCounter = 1;
 
 	this.data = {};
+	this.activedata = {};
 
   	this.markerLatLng = {};
   	this.markerJSON = {};
@@ -17,7 +18,7 @@ Mapper.annotate = new function() {
           <p class="mt1">{{properties.title}}</p>\
         </div>\
         <div class="vertical-center">\
-          <button class="markerEditBtn">Edit</button><span class="mx1">|</span><button class="markerDeleteBtn">Delete</button>\
+          <a class="markerEditBtn">Edit</a><span class="mx1">|</span><a class="markerDeleteBtn">Delete</a>\
         </div>\
       </div>';
 
@@ -30,6 +31,8 @@ Mapper.annotate = new function() {
 		if (_annotate.activeMarkerStatus == false) {
 	    	_annotate.marker = new L.marker(e.latlng, {
 	    		draggable: true });
+
+	    	console.log(e.latlng);
 
 	    	_annotate.marker.addTo(Mapper.map_components.activeMarkerLayer);
 
@@ -100,6 +103,27 @@ Mapper.annotate = new function() {
 
   	this.editMarker = function(event) {
   		markerID = $(event.currentTarget).parent().parent().attr('data-id');
+  		_annotate.data.points = Mapper.map_components.storageMarkerLayer.toGeoJSON()
+  		_annotate.data.points.features = _annotate.data.points.features
+               .filter(function (el) {
+                        return el.properties.marker_id == parseInt(markerID);
+                       });
+
+
+        _annotate.marker = new L.marker(_annotate.data.points.features[0].geometry.coordinates, {
+	    	draggable: true });
+
+	    _annotate.marker.addTo(Mapper.map_components.activeMarkerLayer);
+
+
+        _annotate.data.points = Mapper.map_components.storageMarkerLayer.toGeoJSON()
+		_annotate.data.points.features = _annotate.data.points.features
+               .filter(function (el) {
+                        return el.properties.marker_id !== parseInt(markerID);
+                       });
+		Mapper.map_components.storageMarkerLayer.clearLayers()
+		Mapper.map_components.storageMarkerLayer.addData(_annotate.data.points)
+
   		console.log(markerID)
   	}
 
