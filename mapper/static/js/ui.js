@@ -10,8 +10,6 @@ Mapper.ui = new function() {
 		'markerLoc': '#markerLoc',
 		'markerDesc': '#markerDesc',
 		'markerSaveButton': '#markerSaveBtn',
-		// 'markerDeleteBtn': '.markerDeleteBtn',
-		// 'markerEditBtn': '.markerEditBtn',
 		'markerList': '#markerList',
 		'createNewMap': '#createNewMapBtn',
 		'savePublish': '#savePublishBtn',
@@ -21,7 +19,7 @@ Mapper.ui = new function() {
 		'formInputs': '.form-input',
 		'savedPins': '#saved-pins',
 		'mapGrid': '#map-grid',
-		'editMapBtn': '.edit-map-btn' 
+		'editMapBtn': '.edit-map-btn'
 	};
 	this.templates = {};
 	this.events = {};
