@@ -136,12 +136,37 @@ body {
 }
 
 
-//for nav only! refactor this
+// for nav only! refactor this
 .ul--flex {
   display: -webkit-flex;
   justify-content: center;
   
 }
+
+
+
+// more menu
+.more-post-types {
+
+  &:hover {
+    .more-menu {
+      display: block;
+      margin-left: 0px;
+    }
+  } 
+}
+
+.more-menu {
+  display:none;
+  position: absolute;
+  position: absolute;
+  width: auto;
+  &:hover {
+    display: block;
+  }
+}
+
+
 
 
 
