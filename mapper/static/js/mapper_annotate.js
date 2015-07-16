@@ -10,10 +10,10 @@ Mapper.annotate = new function() {
     this.markerJSON = {}; //holds json of active marker to allow for saving to storage later
 
     this.pinTemplate = '\
-    <div data-id="{{properties.marker_id}}" class="col col-12 border-bottom pb1 mb2 display-flex">\
+    <div data-id="{{properties.marker_id}}" class="map-card col col-12 border-bottom p1 pb2 mb2 display-flex">\
         <div class="mr3 flex-1">\
           <p><span class="text-gray--lightest mr1">Pin coords:</span>({{geometry.coordinates}})</p>\
-          <p class="mt1">{{properties.title}}</p>\
+          <p class="mt1 type-4">{{properties.title}}</p>\
         </div>\
         <div class="vertical-center">\
           <a class="markerEditBtn">Edit</a><span class="mx1">|</span><a class="markerDeleteBtn">Delete</a>\
@@ -76,6 +76,7 @@ Mapper.annotate = new function() {
             //clear left-side editing console
             Mapper.ui.els.markerLoc.text('');
             Mapper.ui.els.markerDesc[0].value = '';
+            Mapper.ui.els.savedPins.addClass('saved-pin-card-border');
 
         } else {
 
