@@ -22,9 +22,10 @@ Mapper.annotate = new function() {
         </div>\
       </div>';
 
-	this.init = function() {
+  this.init = function() {
 
-  	}
+  }
+
 
   	this.addMarker = function(e) {
 

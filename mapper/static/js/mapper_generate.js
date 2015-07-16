@@ -9,15 +9,39 @@ Mapper.generate = new function() {
 			.setView([38.1089, 13.3545], 8)
 			.addControl(L.mapbox.geocoderControl('mapbox.places'));
 
-		Mapper.map_components.activeMarkerLayer = new L.mapbox.featureLayer().addTo(Mapper.map_components.map);
+		Mapper.map_components.activeMarkerLayer = new L.mapbox.featureLayer()
+			.addTo(Mapper.map_components.map);
 
+		if (Mapper.map_id) {
+			Mapper.generate.loadMap()
+		}
+		else {
+			Mapper.map_components.storageMarkerLayer = new L.geoJson()
+				.addTo(Mapper.map_components.map);
+		}
 
-		Mapper.map_components.storageMarkerLayer = new L.geoJson().addTo(Mapper.map_components.map);
 		Mapper.map_components.storageMarkerLayer.options.pointToLayer = L.mapbox.marker.style;
 
 		Mapper.generate.addListeners();
 
-	}
+	};
+
+	this.loadMap = function() {
+			$.ajax({
+			dataType: "json",
+			url: "/api/mappoints/?map="+Mapper.map_id,}).done(
+				function(data) {
+					Mapper.map_components.storageMarkerLayer = new L.geoJson(data)
+						.addTo(Mapper.map_components.map)
+					var markers = data
+					$.each(markers, function(x, marker) {
+        		Mapper.annotate.addPinTemplate(marker)
+    			})
+	    		Mapper.map_components.map.fitBounds(Mapper.map_components.storageMarkerLayer.getBounds());
+				}
+			)
+		}
+
 
 	this.addListeners = function() {
 		Mapper.map_components.map.on('dblclick', Mapper.annotate.addMarker)

@@ -13,8 +13,12 @@ class MapPoint(geomodels.Model):
 	title = models.CharField(max_length=256)
 	notes = models.CharField(max_length=1024, blank=True)
 	timestamp = models.DateTimeField(null=True,blank=True)
+	marker_id = models.IntegerField(blank=False)
 	point = geomodels.PointField()
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now=True)
+
+	class Meta:
+		unique_together = (("map", "marker_id"),)
 
 	objects = geomodels.GeoManager()
