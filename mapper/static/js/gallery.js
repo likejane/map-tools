@@ -42,6 +42,8 @@ Mapper.gallery = new function() {
 			notes = parentEl.attr('data-notes');
 
 		Mapper.ui.els.mapCreator.show();
+		Mapper.ui.els.createNewMap.hide();
+		Mapper.ui.els.savePublish.show();
 		Mapper.ui.els.mapTitle.val(name);
 		Mapper.ui.els.mapNotes.val(notes);
 
@@ -56,5 +58,5 @@ Mapper.gallery = new function() {
 	}
 
 	//http://api.tiles.mapbox.com/v4/examples.map-zr0njcqy/pin-s-bus+f44(-73.99,40.70,13)/-73.99,40.70,13/500x300.png?access_token=pk.eyJ1IjoicmFkZGRpYyIsImEiOiJkNmU0ZDNkZTg1ZmEzYzZjNGRmYWE0NDg2ODNlMzkxYyJ9.JuCOrEi6fdy9zRDW-lJo7A
-	
+
 }()

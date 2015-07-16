@@ -58,9 +58,10 @@ Mapper.save = new function() {
 			_save.data.points.features.forEach(function(d){d.properties.map = Mapper.map_id});
 		}
 		console.log("save points");
+		console.log(_save.data.points);
 		$.ajax({
 			url: "/api/mappoints/",
-			data: JSON.stringify(_save.data.points.features),
+			data: JSON.stringify(_save.data.points),
 			type: "POST",
 			contentType: "application/json",
 			done: _save.dataSaved
