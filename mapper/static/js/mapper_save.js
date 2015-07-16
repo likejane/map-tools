@@ -4,6 +4,7 @@ Mapper.save = new function() {
 	this.markerArray = [];
 	this.markerIds = 0;
 	this.data = {};
+	this.newMap = false;
 	this.fields = ['mapTitle', 'mapNotes'];
 
 	this.init = function() {
@@ -43,29 +44,26 @@ Mapper.save = new function() {
 
 
 	this.saveMap = function(){
-		console.log("save map");
-		$.ajax({
+		if (Mapper.map_id){
+			$.ajax({
+			url: "/api/maps/".concat(Mapper.map_id),
+			data: JSON.stringify(_save.data), //passes the points but they're actually ignored rn.
+			type: "PUT",
+			contentType: "application/json"
+		}).done(_save.dataSaved);
+		}
+		else {
+			_save.newMap = true;
+			$.ajax({
 			url: "/api/maps/",
 			data: JSON.stringify(_save.data), //passes the points but they're actually ignored rn.
 			type: "POST",
 			contentType: "application/json"
-		}).done(_save.savePoints);
+		}).done(_save.dataSaved);
+
+		}
 	}
 
-	this.savePoints = function(data){
-		if (data){// get map id from POST to /maps/ endpoint.
-			Mapper.map_id = data.id;
-			_save.data.points.features.forEach(function(d){d.properties.map = Mapper.map_id});
-		}
-		console.log("save points");
-		$.ajax({
-			url: "/api/mappoints/",
-			data: JSON.stringify(_save.data.points.features),
-			type: "POST",
-			contentType: "application/json",
-			done: _save.dataSaved
-		}).done(_save.dataSaved);
-	}
 
 	this.saveData = function(r) {
 		console.log('Saved Data', r);

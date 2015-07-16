@@ -16,12 +16,13 @@ Mapper.generate = new function() {
 		Mapper.map_components.activeMarkerLayer = new L.mapbox.featureLayer()
 			.addTo(Mapper.map_components.map);
 
+		Mapper.map_components.storageMarkerLayer = new L.geoJson()
+				.addTo(Mapper.map_components.map);
+
 		if (Mapper.map_id) {
 			Mapper.generate.loadMap()
 		}
 		else {
-			Mapper.map_components.storageMarkerLayer = new L.geoJson()
-				.addTo(Mapper.map_components.map);
 			_generate.markerCounter = 1;
 		}
 
@@ -34,12 +35,14 @@ Mapper.generate = new function() {
 	this.loadMap = function() {
 			$.ajax({
 			dataType: "json",
-			url: "/api/mappoints/?map="+Mapper.map_id,}).done(
+			url: "/api/maps/"+Mapper.map_id,}).done(
 				function(data) {
-					_generate.markerCounter = data.length + 1;
-					Mapper.map_components.storageMarkerLayer = new L.geoJson(data)
-						.addTo(Mapper.map_components.map)
-					var markers = data
+
+					_generate.markerCounter = data.points.length + 1;
+
+					Mapper.map_components.storageMarkerLayer.addData(data.points);
+					var markers = data.points
+
 					$.each(markers, function(x, marker) {
         		Mapper.annotate.addPinTemplate(marker)
     			})
