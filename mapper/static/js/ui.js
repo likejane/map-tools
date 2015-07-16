@@ -10,6 +10,7 @@ Mapper.ui = new function() {
 		'markerLoc': '#markerLoc',
 		'markerDesc': '#markerDesc',
 		'markerSaveButton': '#markerSaveBtn',
+		'markerCancelBtn': '#markerCancelBtn',
 		'markerList': '#markerList',
 		'createNewMap': '#createNewMapBtn',
 		'savePublish': '#savePublishBtn',
@@ -43,6 +44,7 @@ Mapper.ui = new function() {
 
 	this.addEvents = function() {
 		_ui.els.markerSaveButton.click(Mapper.annotate.saveMarker);
+		_ui.els.markerCancelBtn.click(Mapper.annotate.cancelMarker);
 		_ui.els.createNewMap.click(_ui.openMapCreator);
 		_ui.els.cancelMap.click(_ui.closeMapCreator);
 		_ui.els.savePublish.click(Mapper.save.init);

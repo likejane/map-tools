@@ -8,6 +8,7 @@ Mapper.annotate = new function() {
     this.existingMarkerID; //holds marker_id of marker being edited or deleted
     this.data = {}; //data holder for saving manipulated json's before being sent back into mapbox
     this.markerJSON = {}; //holds json of active marker to allow for saving to storage later
+    this.markerJSONrevert = {}; //holds an unedited state of the active layer during edits for canceling
 
     this.pinTemplate = '\
     <div data-id="{{properties.marker_id}}" class="map-card col col-12 border-bottom p1 pb2 mb2 display-flex">\
@@ -24,6 +25,19 @@ Mapper.annotate = new function() {
 
     }
 
+    this.cancelMarker = function() {
+        if (_annotate.existingMarkerID) {
+            _annotate.markerJSONrevert.geometry.coordinates = _annotate.markerJSONrevert.geometry.coordinates.reverse();
+            Mapper.map_components.storageMarkerLayer.addData(_annotate.markerJSONrevert);
+            $('.blockUI').remove();
+        };
+        Mapper.map_components.activeMarkerLayer.removeLayer(Mapper.annotate.marker);
+        Mapper.ui.els.markerLoc.text('');
+        Mapper.ui.els.markerDesc[0].value = '';
+        markerSaveBtn.textContent = 'Add Pin';
+        _annotate.activeMarkerStatus = false;
+        _annotate.existingMarkerID = null;
+    };
 
     this.addMarker = function(e) {
 
@@ -52,31 +66,34 @@ Mapper.annotate = new function() {
 
         if (_annotate.activeMarkerStatus == true && Mapper.ui.els.markerDesc[0].value !== "") {
 
-            var markerJSON = Mapper.annotate.marker.toGeoJSON()
-            markerJSON.properties.title = Mapper.ui.els.markerDesc.val()
+            _annotate.markerJSON = Mapper.annotate.marker.toGeoJSON()
+            _annotate.markerJSON.properties.title = Mapper.ui.els.markerDesc.val()
 
             // choose different behavior if editing or adding
 
             if (_annotate.existingMarkerID != null) {
-                markerJSON.properties.marker_id = parseInt(_annotate.existingMarkerID);
+                _annotate.markerJSON.properties.marker_id = parseInt(_annotate.existingMarkerID);
                 _annotate.existingMarkerID = null;
-                _annotate.editPinTemplate(markerJSON);
+                _annotate.editPinTemplate(_annotate.markerJSON);
             } else {
-                markerJSON.properties.marker_id = Mapper.generate.markerCounter;
+                _annotate.markerJSON.properties.marker_id = Mapper.generate.markerCounter;
                 Mapper.generate.markerCounter += 1;
-                _annotate.addPinTemplate(markerJSON);
+                _annotate.addPinTemplate(_annotate.markerJSON);
             };
 
             //remove from active layer and add to storage layer
             Mapper.map_components.activeMarkerLayer.removeLayer(Mapper.annotate.marker);
-            Mapper.map_components.storageMarkerLayer.addData(markerJSON);
+            Mapper.map_components.storageMarkerLayer.addData(_annotate.markerJSON);
 
             _annotate.activeMarkerStatus = false;
 
             //clear left-side editing console
             Mapper.ui.els.markerLoc.text('');
             Mapper.ui.els.markerDesc[0].value = '';
+
+            markerSaveBtn.textContent = 'Add Pin';
             Mapper.ui.els.savedPins.addClass('saved-pin-card-border');
+
 
         } else {
 
@@ -124,15 +141,20 @@ Mapper.annotate = new function() {
             _annotate.currentMarkerList = $(event.currentTarget).parent().parent();
             _annotate.existingMarkerID = $(event.currentTarget).parent().parent().attr('data-id');
 
-            //block container being edited
+            //block container being edited and change 'add pin' button to 'save pin'
             $(event.currentTarget).parent().parent().block({message: null});
+            markerSaveBtn.textContent = 'Save';
 
             //pull out json of point being edited and return to active layer with normal point-creation behaviors (ie. dragging)
             _annotate.data.points = Mapper.map_components.storageMarkerLayer.toGeoJSON()
+
             _annotate.data.points.features = _annotate.data.points.features
                    .filter(function (el) {
                             return el.properties.marker_id == parseInt(_annotate.existingMarkerID);
                     });
+
+            _annotate.markerJSONrevert = _annotate.data.points.features[0]; //saved version for reverting via cancel
+
             _annotate.marker = new L.marker(_annotate.data.points.features[0].geometry.coordinates.reverse(), {
                 draggable: true });
             _annotate.marker.addTo(Mapper.map_components.activeMarkerLayer);

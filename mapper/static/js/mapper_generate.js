@@ -10,7 +10,7 @@ Mapper.generate = new function() {
 		Mapper.map_components.map = new L.mapbox.map('map', 'mapbox.streets', {
 				doubleClickZoom: false
 			})
-			.setView([38.1089, 13.3545], 8)
+			.setView([40.741924698522055, -73.98957252502441], 12)
 			.addControl(L.mapbox.geocoderControl('mapbox.places'));
 
 		Mapper.map_components.activeMarkerLayer = new L.mapbox.featureLayer()
@@ -41,11 +41,13 @@ Mapper.generate = new function() {
 					_generate.markerCounter = data.points.length + 1;
 
 					Mapper.map_components.storageMarkerLayer.addData(data.points);
-					var markers = data.points
+					Mapper.ui.els.savedPins.empty();
+
+					var markers = data.points;
 
 					$.each(markers, function(x, marker) {
-        		Mapper.annotate.addPinTemplate(marker)
-    			})
+        				Mapper.annotate.addPinTemplate(marker)
+    				});
 	    		Mapper.map_components.map.fitBounds(Mapper.map_components.storageMarkerLayer.getBounds());
 				}
 			)
