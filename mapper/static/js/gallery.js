@@ -44,6 +44,12 @@ Mapper.gallery = new function() {
 		Mapper.ui.els.mapCreator.show();
 		Mapper.ui.els.mapTitle.val(name);
 		Mapper.ui.els.mapNotes.val(notes);
+
+		_ui.els.createNewMap.hide();
+		_ui.els.savePublish.show();
+		_ui.els.cancelMap.show();
+		_ui.els.formInputs.val('');
+		
 		Mapper.map_id = mapId;
 		Mapper.generate.init();
 
