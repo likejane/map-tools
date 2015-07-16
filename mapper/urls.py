@@ -19,11 +19,11 @@ from django.views.generic import TemplateView
 
 from rest_framework import routers
 
-from api.views import MapViewSet, MapPointViewSet
+from api import views
 
 router = routers.DefaultRouter()
-router.register(r'maps', MapViewSet)
-router.register(r'mappoints', MapPointViewSet)
+router.register(r'maps', views.MapViewSet)
+router.register(r'mappoints', views.MapPointViewSet)
 
 
 
@@ -31,7 +31,8 @@ router.register(r'mappoints', MapPointViewSet)
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^api/', include(router.urls)),
+    url(r'^api/maps/$', views.map_list),
+    url(r'^api/maps/(?P<pk>[0-9]+)/$', views.map_detail),
     url(r'^bpage$', TemplateView.as_view(template_name='bpage.html')),
     url(r'^cms$', TemplateView.as_view(template_name='cms.html')),
     url(r'^map$', TemplateView.as_view(template_name='map.html')),

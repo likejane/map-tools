@@ -35,13 +35,14 @@ Mapper.generate = new function() {
 	this.loadMap = function() {
 			$.ajax({
 			dataType: "json",
-			url: "/api/mappoints/?map="+Mapper.map_id,}).done(
+			url: "/api/maps/"+Mapper.map_id,}).done(
 				function(data) {
 
 					_generate.markerCounter = data.length + 1;
-					Mapper.map_components.storageMarkerLayer.addData(data);
 
-					var markers = data
+					Mapper.map_components.storageMarkerLayer.addData(data.points);
+					var markers = data.points
+
 					$.each(markers, function(x, marker) {
         		Mapper.annotate.addPinTemplate(marker)
     			})

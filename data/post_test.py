@@ -6,14 +6,17 @@ with open('citibike.json') as f:
 	dataN = json.load(f)
 
 
-url = 'http://localhost:8000/api/mappoints/'
+url = 'http://localhost:8000/api/maps/'
 
-print json.dumps(dataN)
+dataN['name'] = 'bikes'
+dataN['notes'] = 'demo'
 
-for d in dataN['features']:
-	d['properties']['map'] = 3
+for i,d in enumerate(dataN['features']):
+	d['properties']['marker_id'] = i
+
 
 headers = {"Content-Type": "application/json"}
-r = requests.post(url, data=json.dumps(dataN['features']), headers=headers)
+print json.dumps(dataN)
+r = requests.post(url, data=json.dumps(dataN), headers=headers)
 print r.text
 

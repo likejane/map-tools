@@ -42,8 +42,6 @@ Mapper.gallery = new function() {
 			notes = parentEl.attr('data-notes');
 
 		Mapper.ui.els.mapCreator.show();
-		Mapper.ui.els.createNewMap.hide();
-		Mapper.ui.els.savePublish.show();
 		Mapper.ui.els.mapTitle.val(name);
 		Mapper.ui.els.mapNotes.val(notes);
 
@@ -51,7 +49,7 @@ Mapper.gallery = new function() {
 		_ui.els.savePublish.show();
 		_ui.els.cancelMap.show();
 		_ui.els.formInputs.val('');
-		
+
 		Mapper.map_id = mapId;
 		Mapper.generate.init();
 
