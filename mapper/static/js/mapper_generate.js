@@ -41,7 +41,6 @@ Mapper.generate = new function() {
 
 					Mapper.map_components.storageMarkerLayer.addData(data.points);
 					Mapper.ui.els.savedPins.empty();
-
 					var markers = data.points;
 
 					$.each(markers, function(x, marker) {
