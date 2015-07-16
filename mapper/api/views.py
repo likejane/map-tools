@@ -49,7 +49,9 @@ def update_or_create_points(map_id, data):
             epoint.point = Point(*p['geometry']['coordinates'])
             epoint.save()
         ids.append(epoint.id)
-        print ids
+    #DELETE
+    points_to_delete = MapPoint.objects.filter(map=map).exclude(id__in=ids)
+    points_to_delete.delete()
 
 
 

@@ -178,8 +178,21 @@ body {
   display: none;
 }
 
+.map-card {
+  &:last-child {
+    margin: 0;
+    border-bottom: 0;
+    padding: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
 
-
+.saved-pin-card-border {
+  border: 1px solid #cdcdcd;
+  border-radius: 2px;
+  padding: 15px;
+}
 
 
 

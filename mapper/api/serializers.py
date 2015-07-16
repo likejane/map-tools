@@ -20,7 +20,7 @@ class MapSerializerFullResponse(serializers.ModelSerializer):
     points = MapPointSerializer(many=True, read_only=True)
     class Meta:
         model = Map
-        fields = ('id', 'name', 'points')
+        fields = ('id', 'name', 'notes', 'points')
 
 
 class MapSerializer(serializers.ModelSerializer):

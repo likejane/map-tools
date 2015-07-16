@@ -144,8 +144,11 @@
 
 			// styles for the overlay
 			overlayCSS:  {
-				backgroundColor:	'#000',
-				opacity:			0.6,
+				backgroundColor:	'#CDCDCD',
+				opacity:			0.5,
+        border:   '1px solid #aaa',
+        borderBottom:   'none',
+        borderRadius:    '1px',
 				cursor:				'wait'
 			},
 
