@@ -57,7 +57,7 @@
     </div>
 
 <!-- subbuzz-wrapper -->
-    <div class="subbuzz-wrapper mt3 col col-12 fill-gray--lighter border--lighter p3">
+    <div id="subbuzz-wrapper" class="subbuzz-wrapper mt3 col col-12 fill-gray--lighter border--lighter p3">
       <div class="border-bottom--lighter pb2">
         <a href="#" class="text-gray--lighter mr2 bold">Text</a>
         <a href="#" class="text-gray--lighter mr2 bold">Image</a>
@@ -71,7 +71,7 @@
               <li class="mb1"><a href="#" class="bold type-5">Update</a></li>
               <li class="mb1"><a href="#" class="bold type-5">Photo Slider</a></li>
               <li class="mb1"><a href="#" class="bold type-5">Chart</a></li>
-              <li class="mb1"><a href="#" class="bold type-5">Maps</a></li>
+              <li class="mb1"><a href="#" class="bold type-5" onclick="$('#subbuzz-wrapper').addClass('show-maps')">Maps</a></li>
               <li><a href="#" class="bold type-5">Correction</a></li>
             </ul>
           </div>
@@ -79,13 +79,10 @@
         <a href="#" class="text-gray--lighter float-right caps">Wire</a>
       </div>
 
-      <input type="text" class="border--lighter mt3 col col-12 text-input" placeholder="Start writing, drag an image, add a URL, embed, or select a format above">
-    </div>
-<!-- end subbuzz-wrapper -->
+      <input id="omni-text" type="text" class="border--lighter mt3 col col-12 text-input" placeholder="Start writing, drag an image, add a URL, embed, or select a format above">
 
-
-<!-- maps subbuzz type: this div should appear inside .subbuzz-wrapper when the user clicks on the "maps" -->
-    <div class="col col-12 fill-gray--lighter pr3 pt3 pb3">
+      <!-- maps subbuzz type: this div should appear inside .subbuzz-wrapper when the user clicks on the "maps" -->
+    <div id="add-map" class="col col-12 fill-gray--lighter pr3 pt3 pb3">
       <h2 class="mb3">Add a Map</h2>
       <label class="form-label">Paste Your Map ID Here</label>
       <input type="text" class="text-input">
@@ -93,6 +90,11 @@
       <div class="mt3">Don't Know Your Map ID?<a href="#"> Find or choose a map here</a></div>
     </div>
 <!-- end maps subbuzz type" --> 
+    </div>
+<!-- end subbuzz-wrapper -->
+
+
+
 
   </div>
 
