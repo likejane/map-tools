@@ -41,11 +41,13 @@ Mapper.generate = new function() {
 					_generate.markerCounter = data.points.length + 1;
 
 					Mapper.map_components.storageMarkerLayer.addData(data.points);
-					var markers = data.points
+					Mapper.ui.els.savedPins.empty();
+
+					var markers = data.points;
 
 					$.each(markers, function(x, marker) {
-        		Mapper.annotate.addPinTemplate(marker)
-    			})
+        				Mapper.annotate.addPinTemplate(marker)
+    				});
 	    		Mapper.map_components.map.fitBounds(Mapper.map_components.storageMarkerLayer.getBounds());
 				}
 			)

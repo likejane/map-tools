@@ -24,6 +24,9 @@ Mapper.annotate = new function() {
 
     }
 
+    this.cancelMarker = function() {
+        console.log('hi');
+    };
 
     this.addMarker = function(e) {
 
@@ -76,6 +79,7 @@ Mapper.annotate = new function() {
             //clear left-side editing console
             Mapper.ui.els.markerLoc.text('');
             Mapper.ui.els.markerDesc[0].value = '';
+            markerSaveBtn.textContent = 'Add';
 
         } else {
 
@@ -123,8 +127,9 @@ Mapper.annotate = new function() {
             _annotate.currentMarkerList = $(event.currentTarget).parent().parent();
             _annotate.existingMarkerID = $(event.currentTarget).parent().parent().attr('data-id');
 
-            //block container being edited
+            //block container being edited and change 'add pin' button to 'save pin'
             $(event.currentTarget).parent().parent().block({message: null});
+            markerSaveBtn.textContent = 'Save';
 
             //pull out json of point being edited and return to active layer with normal point-creation behaviors (ie. dragging)
             _annotate.data.points = Mapper.map_components.storageMarkerLayer.toGeoJSON()
