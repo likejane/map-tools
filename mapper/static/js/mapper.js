@@ -14,9 +14,9 @@ var Mapper = new function() {
 	this.map_id;
 
 	this.init = function() {
-		Mapper.ui.init();
-		Mapper.gallery.init();
-	}
+			Mapper.ui.init();
+			Mapper.gallery.init();
+		} 
 
 
 }();

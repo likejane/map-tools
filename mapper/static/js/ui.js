@@ -13,14 +13,16 @@ Mapper.ui = new function() {
 		'markerCancelBtn': '#markerCancelBtn',
 		'markerList': '#markerList',
 		'createNewMap': '#createNewMapBtn',
+		'editMap' : '#editMapBtn',
+		'cancelEditMap' : '#cancelEditMapBtn',
 		'savePublish': '#savePublishBtn',
 		'cancelMap': '#cancelMapBtn',
+		'mapPreview' : '#mapPreview',
 		'mapTitle': '#mapTitle',
 		'mapNotes': '#mapNotes',
 		'formInputs': '.form-input',
 		'savedPins': '#saved-pins',
 		'mapGrid': '#map-grid',
-		'editMapBtn': '.edit-map-btn'
 	};
 	this.templates = {};
 	this.events = {};
@@ -46,6 +48,8 @@ Mapper.ui = new function() {
 		_ui.els.markerSaveButton.click(Mapper.annotate.saveMarker);
 		_ui.els.markerCancelBtn.click(Mapper.annotate.cancelMarker);
 		_ui.els.createNewMap.click(_ui.openMapCreator);
+		_ui.els.editMap.click(_ui.openMapEditor);
+		_ui.els.cancelEditMap.click(_ui.closeMapEditor);
 		_ui.els.cancelMap.click(_ui.closeMapCreator);
 		_ui.els.savePublish.click(Mapper.save.init);
 		_ui.els.formInputs.keyup(_ui.toggleInputError);
@@ -79,6 +83,27 @@ Mapper.ui = new function() {
 		_ui.els.savePublish.hide();
 		_ui.els.cancelMap.hide();
 	}
+
+	this.openMapEditor = function() {
+		_ui.els.mapPreview.hide();
+		_ui.els.editMap.hide();
+		_ui.els.savePublish.show();
+		_ui.els.cancelEditMap.show();
+		_ui.els.formInputs.val('');
+		_ui.els.formInputs.parents().removeClass('form-error');
+		_ui.els.mapCreator.slideDown(250, function() {
+			Mapper.generate.init();
+		});
+	}
+
+	this.closeMapEditor = function() {
+			_ui.els.mapCreator.hide();
+			_ui.els.mapPreview.show();
+			_ui.els.editMap.show();
+			_ui.els.savePublish.hide();
+			_ui.els.cancelEditMap.hide();
+		}
+
 
 
 }();
