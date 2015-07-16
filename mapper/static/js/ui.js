@@ -14,14 +14,17 @@ Mapper.ui = new function() {
 		'markerCancelBtn': '#markerCancelBtn',
 		'markerList': '#markerList',
 		'createNewMap': '#createNewMapBtn',
+		//'editMap' : '#editMapBtn',
+		'editMapBtn': '.edit-map-btn',
+		'cancelEditMap' : '#cancelEditMapBtn',
 		'savePublish': '#savePublishBtn',
 		'cancelMap': '#cancelMapBtn',
+		'mapPreview' : '#mapPreview',
 		'mapTitle': '#mapTitle',
 		'mapNotes': '#mapNotes',
 		'formInputs': '.form-input',
 		'savedPins': '#saved-pins',
 		'mapGrid': '#map-grid',
-		'editMapBtn': '.edit-map-btn',
 		'mapSelect': '#map-select'
 	};
 	this.templates = {};
@@ -49,6 +52,8 @@ Mapper.ui = new function() {
 		_ui.els.markerSaveButton.click(Mapper.annotate.saveMarker);
 		_ui.els.markerCancelBtn.click(Mapper.annotate.cancelMarker);
 		_ui.els.createNewMap.click(_ui.openMapCreator);
+		_ui.els.editMapBtn.click(_ui.openMapEditor);
+		_ui.els.cancelEditMap.click(_ui.generateView);
 		_ui.els.cancelMap.click(_ui.closeMapCreator);
 		_ui.els.savePublish.click(Mapper.save.init);
 		_ui.els.formInputs.keyup(_ui.toggleInputError);
@@ -82,6 +87,44 @@ Mapper.ui = new function() {
 		_ui.els.savePublish.hide();
 		_ui.els.cancelMap.hide();
 	}
+
+	this.closeMapEditor = function() {
+			_ui.els.editMapBtn.show();
+			_ui.els.savePublish.hide();
+			_ui.els.cancelEditMap.hide();
+		}
+
+  this.generateView = function() {
+			_ui.els.mapTitle.attr('disabled', 'disabled');
+			_ui.els.mapTitle.css('border', '0px');
+			_ui.els.mapNotes.attr('disabled', 'disabled');
+			_ui.els.mapNotes.css('border', '0px');
+			_ui.els.editMapBtn.show();
+			_ui.els.savePublish.hide();
+			_ui.els.markerDesc.hide();
+      _ui.els.markerLoc.hide();
+			_ui.els.markerSaveButton.hide();
+  		_ui.els.markerCancelBtn.hide();
+			_ui.els.cancelEditMap.hide();
+      _ui.els.savedPins.hide();
+	}
+
+	this.openMapEditor = function() {
+			_ui.els.mapTitle.attr('disabled', false);
+			_ui.els.mapTitle.css('border', "1px solid #aaa");
+			_ui.els.mapNotes.attr('disabled', false);
+			_ui.els.mapNotes.css('border', "1px solid #aaa");
+			_ui.els.editMapBtn.hide();
+			_ui.els.savePublish.show();
+			_ui.els.markerDesc.show();
+      _ui.els.markerLoc.show();
+			_ui.els.markerSaveButton.show();
+  		_ui.els.markerCancelBtn.show();
+			_ui.els.cancelEditMap.show();
+			_ui.els.savedPins.show();
+
+		}
+
 
 
 }();
