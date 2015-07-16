@@ -10,7 +10,7 @@ Mapper.generate = new function() {
 		Mapper.map_components.map = new L.mapbox.map('map', 'mapbox.streets', {
 				doubleClickZoom: false
 			})
-			.setView([38.1089, 13.3545], 8)
+			.setView([40.741924698522055, -73.98957252502441], 12)
 			.addControl(L.mapbox.geocoderControl('mapbox.places'));
 
 		Mapper.map_components.activeMarkerLayer = new L.mapbox.featureLayer()
