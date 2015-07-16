@@ -1,5 +1,8 @@
 Mapper.generate = new function() {
 
+	_generate = this;
+	this.markerCounter;
+
 	this.init = function() {
 		L.mapbox.accessToken = 'pk.eyJ1IjoicmFkZGRpYyIsImEiOiJkNmU0ZDNkZTg1ZmEzYzZjNGRmYWE0NDg2ODNlMzkxYyJ9.JuCOrEi6fdy9zRDW-lJo7A';
 
@@ -18,6 +21,7 @@ Mapper.generate = new function() {
 		else {
 			Mapper.map_components.storageMarkerLayer = new L.geoJson()
 				.addTo(Mapper.map_components.map);
+			_generate.markerCounter = 1;
 		}
 
 		Mapper.map_components.storageMarkerLayer.options.pointToLayer = L.mapbox.marker.style;
@@ -31,6 +35,7 @@ Mapper.generate = new function() {
 			dataType: "json",
 			url: "/api/mappoints/?map="+Mapper.map_id,}).done(
 				function(data) {
+					_generate.markerCounter = data.length + 1;
 					Mapper.map_components.storageMarkerLayer = new L.geoJson(data)
 						.addTo(Mapper.map_components.map)
 					var markers = data
