@@ -1,3 +1,4 @@
+
 Mapper.ui = new function() {
 	_ui = this;
 
@@ -20,7 +21,8 @@ Mapper.ui = new function() {
 		'formInputs': '.form-input',
 		'savedPins': '#saved-pins',
 		'mapGrid': '#map-grid',
-		'editMapBtn': '.edit-map-btn'
+		'editMapBtn': '.edit-map-btn',
+		'mapSelect': '#map-select'
 	};
 	this.templates = {};
 	this.events = {};
@@ -34,6 +36,7 @@ Mapper.ui = new function() {
 		$(document).on("click", ".markerEditBtn", function(event) {
 			Mapper.annotate.editMarker(event);
 		});
+		if (_ui.els.mapSelect.length > 0) Mapper.cms.init();
 	}
 
 	this.selectEls = function() {
