@@ -71,8 +71,9 @@ Mapper.save = new function() {
 	}
 
 	this.dataSaved = function(data) {
-		console.log(data);
+		console.log('data', data);
 		Mapper.ui.closeMapCreator();
+		if (!Mapper.map_id) { Mapper.gallery.addToGallery(data); }
 	}
 
 }();

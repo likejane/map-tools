@@ -57,12 +57,12 @@
   </div>
 <!-- END HEADER AND NAV -->
 
-<div class="wrapper mx-auto my3 px2">  
+<div class="wrapper mx-auto my3 px2">
 
   <div>
     <div class="p1 fill-gray text-white bold caps type-6 inline-block">World</div>
   </div>
-  
+
   <div class="col md-col-8 sm-col-12 pb4 pr3">
 
     <!-- title, dek, timestamp -->
@@ -70,7 +70,7 @@
     <p class="type-3 my2">It’s the second time Joaquín “El Chapo” Guzmán has escaped a maximum security facility in Mexico. BuzzFeed News reporter Karla Zabludovsky is in Mexico City.</p>
     <p class="type-6 text-gray--lightest">Originally posted on Jul. 12, 2015, at 5:05 a.m.</p>
     <p class="type-6 text-gray--lightest mb4">Updated on Jul. 12, 2015, at 2:18 p.m.</p>
- 
+
     <!-- author byline -->
     <div class="col lg-col-4 md-col-5 sm-col-6 xs-col-10 mr2">
       <div class="float-left pr1"><a href="#"><img class="byline_avatar-size circle" src="http://s3-ak.buzzfeed.com/static/2015-07/4/17/user_images/webdr04/felipearaujo-v2-20406-1436044708-0_large.jpg"></a></div>
@@ -109,11 +109,15 @@
 
     <!-- subbuzz -->
     <div class="subbuzz col col-12">
-        <h2 class="bold mb2">Map Div</h2>
-        <img src="https://pbs.twimg.com/media/CJt2hzTUAAAMXZe.png" alt="" class="full-width block">
-        <p class="type-6 text-gray--lightest mt1">Data/map source here?</p>
+        <h2 class="bold mb2">Map of Key Locations</h2>
+        <div id="map" class="map-bpage"></div>
+        <script>
+        Mapper.embed.init();
+        Mapper.map_id = 1;
+        Mapper.embed.loadMap();
+        </script>
     </div>
-  
+
   </div>
 
   <div class="col md-col-4 pl4 mt3 md-show xs-hide">
@@ -121,7 +125,7 @@
   </div>
 
   </div>
-    
+
 
   {% endblock %}
 
