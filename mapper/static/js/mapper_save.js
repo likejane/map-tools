@@ -8,8 +8,10 @@ Mapper.save = new function() {
 	this.fields = ['mapTitle', 'mapNotes'];
 
 	this.init = function() {
+		console.log("going to save");
 		if (!_save.validateFields()) return false;
 		_save.collectData();
+		console.log(_save.data)
 		_save.saveData();
 	}
 
@@ -72,8 +74,17 @@ Mapper.save = new function() {
 
 	this.dataSaved = function(data) {
 		console.log('data', data);
-		Mapper.ui.closeMapCreator();
-		if (!Mapper.map_id) { Mapper.gallery.addToGallery(data); }
+		if (Mapper.page && Mapper.page == "mapEditor") {
+			$("body").block();
+			setTimeout(function() {
+				$('.blockUI').remove();
+				Mapper.ui.generateView();
+			}, 2500)
+		}
+		else {
+			Mapper.ui.closeMapCreator();
+			if (!Mapper.map_id) { Mapper.gallery.addToGallery(data); }
+		}
 	}
 
 }();

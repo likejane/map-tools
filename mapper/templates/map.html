@@ -12,19 +12,25 @@
 </head>
 {% endblock %}
 
-
-
+</script>
 {% block body %}
+  <script type="text/javascript">
+    Mapper.map_id = {{map_id}}
+    Mapper.page = "mapEditor"
+  </script>
 
-  <div class="col col-12 my3">
-    <a id="createNewMapBtn" class="button button--primary col md-col-2">Edit this Map</a>
-    <a id="savePublishBtn" class="hide button button--primary col md-col-2 mr2">Save and Publish</a>
-    <a id="cancelMapBtn" class="hide button button--secondary col md-col-2">Cancel</a>
+  <div class="wrapper mx-auto clearfix">
+    <h1 class="bold mt4 mb1">Map Editor</h1>
+    <div class="col col-12 my3">
+      <a class="edit-map-btn button button--primary col md-col-2">Edit this Map</a>
+      <a id="savePublishBtn" class="hide button button--primary col md-col-2 mr1">Save and Publish</a>
+      <a id="cancelEditMapBtn" class="hide button button--secondary col md-col-2">Cancel</a>
+    </div>
   </div>
 
-  <div class="mx-auto p2 wrapper">
-   <div id='map-creator'style="width:100%;">
+
+<div class="wrapper mx-auto clearfix">
 {% include "map-creator.html" %}
 </div>
-</div>
+
 {% endblock %}
