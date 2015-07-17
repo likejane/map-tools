@@ -34,7 +34,7 @@ Mapper.annotate = new function() {
     this.setMarkerLoc = function() {
       Mapper.ui.els.markerLoc.text(_annotate.marker.toGeoJSON().geometry.coordinates.join(', '));
       Mapper.ui.els.markerLoc[0].classList.remove('text-gray--lightest');
-    };    
+    };
 
     this.cancelMarker = function() {
         if (_annotate.existingMarkerID) {
@@ -51,6 +51,8 @@ Mapper.annotate = new function() {
     };
 
     this.addMarker = function(e) {
+
+        console.log(e);
         if (_annotate.activeMarkerStatus == true) {
             _annotate.marker.setLatLng(e.latlng);
             Mapper.ui.els.markerLoc.text(_annotate.marker.toGeoJSON().geometry.coordinates.join(', '));
@@ -174,7 +176,7 @@ Mapper.annotate = new function() {
 
             //rebuild left-side data form with existing data from point
             Mapper.ui.els.markerDesc[0].value = _annotate.data.points.features[0].properties.title;
-            
+
             _annotate.setMarkerLoc();
 
             //rebuild json of all points except point being edited, clear layer, and rebuild storage layer
