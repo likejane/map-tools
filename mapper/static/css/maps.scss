@@ -196,9 +196,20 @@ body {
   overflow-y: scroll;
 }
 
+.map-background-prison-escape {
+  background-image: url("https://dl.dropboxusercontent.com/u/2085664/map_newyork.png");
+}
+
 
 .map-bpage {
   height: 500px !important;
+}
+
+.astronaut {
+  width: 120px;
+  float: right;
+  position: relative;
+  top: 20px;
 }
 
 

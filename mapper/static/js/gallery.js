@@ -5,7 +5,7 @@ Mapper.gallery = new function() {
 	this.galleryTemplate = '\
 	<div data-id="{{id}}" data-name="{{name}}" data-notes="{{notes}}"  class="col col-2 mr2 mb3 galTemp">\
 		<span class="bold block mb1">{{name}}</span>\
-		<div style="width: 100%; height: 100px; background-color:gray;"></div>\
+		<div class="map-background-prison-escape" style="width: 100%; height: 100px; background-color:gray;"></div>\
 		<span class="copy-map-id button button--primary full-width mt1">Copy ID</span>\
     <span class="edit-map-btn button button--secondary full-width mt1">Edit Map</span>\
       </div>';
