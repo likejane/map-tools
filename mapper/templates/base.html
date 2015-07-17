@@ -37,21 +37,6 @@
   </head>
   <body>
 
-  <button id="clipb">test</button>
-
-  <script>
-  $(document).ready(function() {
-	var client = new ZeroClipboard( document.getElementById("clipb") );
-
-		client.on( "ready", function( readyEvent ) {
-			ZeroClipboard.setData({
-			  "text/plain": "poop",
-			  "text/html": "<b>Blah</b>"
-			});
-		});
-});
-  </script>
-
     {% block body %} {% endblock %}
 
   </body>

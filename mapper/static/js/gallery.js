@@ -3,7 +3,7 @@ Mapper.gallery = new function() {
 	_gallery = this;
 
 	this.galleryTemplate = '\
-	<div data-id="{{id}}" data-name="{{name}}" data-notes="{{notes}}"  class="col col-2 mr2 mb3">\
+	<div data-id="{{id}}" data-name="{{name}}" data-notes="{{notes}}"  class="col col-2 mr2 mb3 galTemp">\
 		<span class="bold block mb1">{{name}}</span>\
 		<div style="width: 100%; height: 100px; background-color:gray;"></div>\
 		<span class="copy-map-id button button--primary full-width mt1">Copy ID</span>\
@@ -30,6 +30,18 @@ Mapper.gallery = new function() {
     		Mapper.ui.els.mapGrid.append(output);
 		});
 
+		_gallery.addEvents();
+	}
+
+	this.addToGallery = function(params) {
+		var output = Mustache.render(_gallery.galleryTemplate, params);
+    	Mapper.ui.els.mapGrid.prepend(output);
+    	$('.galTemp').first().hide().fadeIn('slow');
+
+    	_gallery.addEvents();
+	}
+
+	this.addEvents = function() {
 		Mapper.ui.selectEls();
 		Mapper.ui.els.editMapBtn.click(_gallery.openMap);
 		_gallery.copyIdSetup();
