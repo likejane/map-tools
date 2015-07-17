@@ -1,0 +1,122 @@
+[
+  {
+    "name": "NY Convict Escape",
+    "notes": "Map of locations convicts escaped",
+    "points": [
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -73.78375053405762,
+            42.651636888182466
+          ]
+        },
+        "properties": {
+          "title": "Albany Medical Center",
+          "notes": null,
+          "timestamp": null,
+          "marker_id": 1,
+          "created_at": "2015-07-17T15:14:26.157758Z",
+          "updated_at": "2015-07-17T15:22:45.335133Z",
+          "map": 2
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -76.83340072631836,
+            42.751550199075915
+          ]
+        },
+        "properties": {
+          "title": "Five Points Correctional Facility",
+          "notes": null,
+          "timestamp": null,
+          "marker_id": 2,
+          "created_at": "2015-07-17T15:16:38.150652Z",
+          "updated_at": "2015-07-17T15:22:45.339401Z",
+          "map": 2
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -73.71909856796265,
+            44.7238690408297
+          ]
+        },
+        "properties": {
+          "title": "Clinton Correctional Facility",
+          "notes": null,
+          "timestamp": null,
+          "marker_id": 3,
+          "created_at": "2015-07-17T15:16:38.153377Z",
+          "updated_at": "2015-07-17T15:22:45.341740Z",
+          "map": 2
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -73.37837219238281,
+            44.35331432151491
+          ]
+        },
+        "properties": {
+          "title": "Willsboro, NY",
+          "notes": null,
+          "timestamp": null,
+          "marker_id": 4,
+          "created_at": "2015-07-17T15:22:45.343408Z",
+          "updated_at": "2015-07-17T15:22:45.343433Z",
+          "map": 2
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -74.29676055908203,
+            44.92786297463683
+          ]
+        },
+        "properties": {
+          "title": "Constable, NY",
+          "notes": null,
+          "timestamp": null,
+          "marker_id": 5,
+          "created_at": "2015-07-17T15:22:45.345226Z",
+          "updated_at": "2015-07-17T15:22:45.345242Z",
+          "map": 2
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -74.27607536315918,
+            44.728564560658704
+          ]
+        },
+        "properties": {
+          "title": "Lake Titus",
+          "notes": null,
+          "timestamp": null,
+          "marker_id": 6,
+          "created_at": "2015-07-17T15:22:45.346597Z",
+          "updated_at": "2015-07-17T15:22:45.346624Z",
+          "map": 2
+        }
+      }
+    ]
+  }
+]
