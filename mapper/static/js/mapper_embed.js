@@ -5,36 +5,41 @@ Mapper.embed = new function() {
     this.init = function() {
         L.mapbox.accessToken = 'pk.eyJ1IjoicmFkZGRpYyIsImEiOiJkNmU0ZDNkZTg1ZmEzYzZjNGRmYWE0NDg2ODNlMzkxYyJ9.JuCOrEi6fdy9zRDW-lJo7A';
 
-        if (Mapper.map_components.map) Mapper.map_components.map.remove();
-        Mapper.map_components.map = new L.mapbox.map('map', 'mapbox.streets',{zoomControl: false});
+        if (Mapper.map_components.emap) Mapper.map_components.map.remove();
+        Mapper.map_components.emap = new L.mapbox.map('map', 'mapbox.streets', {
+            zoomControl: false
+        });
 
         // Disable drag and zoom handlers.
-        Mapper.map_components.map.dragging.disable();
-        Mapper.map_components.map.touchZoom.disable();
-        Mapper.map_components.map.doubleClickZoom.disable();
-        Mapper.map_components.map.scrollWheelZoom.disable();
+                Mapper.map_components.emap.dragging.disable();
+                Mapper.map_components.emap.touchZoom.disable();
+                Mapper.map_components.emap.doubleClickZoom.disable();
+                Mapper.map_components.emap.scrollWheelZoom.disable();
+
 
         Mapper.map_components.storageMarkerLayer = new L.geoJson()
-                .addTo(Mapper.map_components.map);
+            .addTo(Mapper.map_components.emap);
 
         Mapper.map_components.storageMarkerLayer.options.pointToLayer = L.mapbox.marker.style;
 
     };
 
     this.loadMap = function() {
-            $.ajax({
+        $.ajax({
             dataType: "json",
-            url: "/api/maps/"+Mapper.map_id,}).done(
-                function(data) {
+            url: "/api/maps/" + Mapper.map_id,
+        }).done(
+            function(data) {
 
-                    Mapper.map_components.storageMarkerLayer.addData(data.points);
+                Mapper.map_components.storageMarkerLayer.addData(data.points);
 
-                    Mapper.generate.attachPopups();
+                Mapper.generate.attachPopups();
 
-                    Mapper.map_components.map.fitBounds(Mapper.map_components.storageMarkerLayer.getBounds());
-                }
-            )
-        }
+                Mapper.map_components.emap.fitBounds(Mapper.map_components.storageMarkerLayer.getBounds());
+
+            }
+        )
+    }
 
 
 }();

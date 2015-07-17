@@ -7,6 +7,7 @@ var Mapper = new function() {
 	}
 	this.map_components = {
 		map: null,
+		emap: null,
 		activeMarkerLayer: null,
 		storageMarkerLayer: null
 	}
