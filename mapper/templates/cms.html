@@ -65,13 +65,13 @@
         <a href="#" class="text-gray--lighter mr2 bold">Link</a>
         <a href="#" class="text-gray--lighter mr2 bold">Quiz</a>
         <span class="inline-block more-post-types">
-          <a href="#" class="text-gray--lighter mr2 bold more-post-types">More</a>
+          <a class="text-gray--lighter mr2 bold more-post-types">More</a>
           <div class="fill-white p2 col col-3 offset-5 border more-menu">
             <ul class="list-unstyled">
               <li class="mb1"><a href="#" class="bold type-5">Update</a></li>
               <li class="mb1"><a href="#" class="bold type-5">Photo Slider</a></li>
               <li class="mb1"><a href="#" class="bold type-5">Chart</a></li>
-              <li class="mb1"><a href="#" class="bold type-5" onclick="$('#subbuzz-wrapper').addClass('show-maps')">Maps</a></li>
+              <li class="mb1"><a class="bold type-5" onclick="$('#subbuzz-wrapper').addClass('show-maps')">Maps</a></li>
               <li><a href="#" class="bold type-5">Correction</a></li>
             </ul>
           </div>
@@ -93,11 +93,7 @@
 
       <div class="mb3">
         <label class="block form-label">...Or Choose A Map Below</label>
-        <select class="col-6 select mb2">
-          <option value="Find a map">Find a map</option>
-          <option value="New York City Bike Map">New York City Bike Map</option>
-          <option value="Best Restaurants in Lisbon">Best Restaurants in Lisbon</option>
-          <option value="NY Prisoner Escape Trail">NY Prisoner Escape Trail</option>
+        <select id="map-select" class="col-6 select mb2">
         </select> 
       </div>
 
@@ -106,9 +102,6 @@
 <!-- end maps subbuzz type" --> 
     </div>
 <!-- end subbuzz-wrapper -->
-
-
-
 
   </div>
 
