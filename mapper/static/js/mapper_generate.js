@@ -10,8 +10,19 @@ Mapper.generate = new function() {
         Mapper.map_components.map = new L.mapbox.map('map', 'mapbox.streets', {
                 doubleClickZoom: false
             })
-            .setView([40.741924698522055, -73.98957252502441], 12)
-            .addControl(L.mapbox.geocoderControl('mapbox.places'));
+            .setView([40.741924698522055, -73.98957252502441], 12);
+
+        var geocoderControl = L.mapbox.geocoderControl('mapbox.places');
+        geocoderControl.addTo(Mapper.map_components.map);
+
+        geocoderControl.on('select', function(d) {
+            var geocodeData = {'latlng': {'lat': d.feature.geometry.coordinates[1],
+            'lng': d.feature.geometry.coordinates[0]}};
+
+            Mapper.annotate.addMarker(geocodeData);
+        });
+
+
 
         Mapper.map_components.activeMarkerLayer = new L.mapbox.featureLayer()
             .addTo(Mapper.map_components.map);
