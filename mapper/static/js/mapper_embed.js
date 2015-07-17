@@ -11,7 +11,7 @@ Mapper.embed = new function() {
         });
 
         // Disable drag and zoom handlers.
-                Mapper.map_components.emap.dragging.disable();
+
                 Mapper.map_components.emap.touchZoom.disable();
                 Mapper.map_components.emap.doubleClickZoom.disable();
                 Mapper.map_components.emap.scrollWheelZoom.disable();
