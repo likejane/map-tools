@@ -14,10 +14,15 @@ var Mapper = new function() {
 	this.map_id;
 
 	this.init = function() {
+		if (Mapper.map_id) {
+			Mapper.ui.init();
+			Mapper.view.loadData();
+		}
+		else {
 			Mapper.ui.init();
 			Mapper.gallery.init();
-		} 
-
+		}
+	}
 
 }();
 
