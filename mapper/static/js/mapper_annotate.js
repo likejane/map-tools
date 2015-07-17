@@ -9,6 +9,7 @@ Mapper.annotate = new function() {
     this.data = {}; //data holder for saving manipulated json's before being sent back into mapbox
     this.markerJSON = {}; //holds json of active marker to allow for saving to storage later
     this.markerJSONrevert = {}; //holds an unedited state of the active layer during edits for canceling
+    this.markerLocText = 'Double-click to create pin'; // Store the marker help text
 
     this.pinTemplate = '\
     <div data-id="{{properties.marker_id}}" class="map-card col col-12 border-bottom p1 pb2 mb2 display-flex">\
@@ -23,7 +24,17 @@ Mapper.annotate = new function() {
 
     this.init = function() {
 
-    }
+    };
+
+    this.resetMarkerLoc = function() {
+      Mapper.ui.els.markerLoc.text(_annotate.markerLocText);
+      Mapper.ui.els.markerLoc[0].classList.add('text-gray--lightest');
+    };
+
+    this.setMarkerLoc = function() {
+      Mapper.ui.els.markerLoc.text(_annotate.marker.toGeoJSON().geometry.coordinates.join(', '));
+      Mapper.ui.els.markerLoc[0].classList.remove('text-gray--lightest');
+    };    
 
     this.cancelMarker = function() {
         if (_annotate.existingMarkerID) {
@@ -32,7 +43,7 @@ Mapper.annotate = new function() {
             $('.blockUI').remove();
         };
         Mapper.map_components.activeMarkerLayer.removeLayer(Mapper.annotate.marker);
-        Mapper.ui.els.markerLoc.text('');
+        _annotate.resetMarkerLoc();
         Mapper.ui.els.markerDesc[0].value = '';
         markerSaveBtn.textContent = 'Add Pin';
         _annotate.activeMarkerStatus = false;
@@ -40,7 +51,6 @@ Mapper.annotate = new function() {
     };
 
     this.addMarker = function(e) {
-
         if (_annotate.activeMarkerStatus == true) {
             _annotate.marker.setLatLng(e.latlng);
             Mapper.ui.els.markerLoc.text(_annotate.marker.toGeoJSON().geometry.coordinates.join(', '));
@@ -51,8 +61,7 @@ Mapper.annotate = new function() {
             _annotate.marker.addTo(Mapper.map_components.activeMarkerLayer);
             _annotate.activeMarkerStatus = true;
 
-            Mapper.ui.els.markerLoc.text(_annotate.marker.toGeoJSON().geometry.coordinates.join(', '));
-
+            _annotate.setMarkerLoc();
             _annotate.marker.on('dragend', function(event) {
                 Mapper.ui.els.markerLoc.text(_annotate.marker.toGeoJSON().geometry.coordinates.join(', '));
             });
@@ -88,7 +97,7 @@ Mapper.annotate = new function() {
             _annotate.activeMarkerStatus = false;
 
             //clear left-side editing console
-            Mapper.ui.els.markerLoc.text('');
+            _annotate.resetMarkerLoc();
             Mapper.ui.els.markerDesc[0].value = '';
 
             markerSaveBtn.textContent = 'Add Pin';
@@ -160,12 +169,13 @@ Mapper.annotate = new function() {
             _annotate.marker.addTo(Mapper.map_components.activeMarkerLayer);
             _annotate.activeMarkerStatus = true;
             _annotate.marker.on('dragend', function(event) {
-                Mapper.ui.els.markerLoc.text(_annotate.marker.toGeoJSON().geometry.coordinates.join(', '));
+              _annotate.setMarkerLoc();
             });
 
             //rebuild left-side data form with existing data from point
             Mapper.ui.els.markerDesc[0].value = _annotate.data.points.features[0].properties.title;
-            Mapper.ui.els.markerLoc.text(_annotate.marker.toGeoJSON().geometry.coordinates.join(', '));
+            
+            _annotate.setMarkerLoc();
 
             //rebuild json of all points except point being edited, clear layer, and rebuild storage layer
             _annotate.data.points = Mapper.map_components.storageMarkerLayer.toGeoJSON();
