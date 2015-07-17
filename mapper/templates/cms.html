@@ -50,7 +50,7 @@
       <label for="check_1" class="text-gray--lightest">Replace description with bulleted summary on article page</label>
     </div>
 
-    <img src="http://s3-ak.buzzfeed.com/static/2015-05/8/15/user_images/webdr13/emilybrick-v2-29138-1431115121-28.jpg" alt="" class="circle col col-1">
+    <img src="http://s3-ak.buzzfeed.com/static/2015-05/8/15/user_images/webdr13/emilybrick-v2-29138-1431115121-28.jpg" alt="" class="circle col col-1 lg-pr1 md-pr0">
     <div class="ml1 py1 col col-10">
       <a href="#" class="bold">Emily Brick</a>
       <p class="type-5 text-gray--lighter">BuzzFeed Staff</p>
@@ -84,10 +84,24 @@
       <!-- maps subbuzz type: this div should appear inside .subbuzz-wrapper when the user clicks on the "maps" -->
     <div id="add-map" class="col col-12 fill-gray--lighter pr3 pt3 pb3">
       <h2 class="mb3 bold">Add a Map</h2>
-      <label class="form-label">Paste Your Map ID Here</label>
-      <input type="text" class="text-input">
-      <button class="button button--primary">Add Map</button>
-      <div class="mt3">Don't Know Your Map ID?<a href="#"> Find or choose a map here</a></div>
+
+      <div class="mb3 clearfix">
+        <label class="form-label">Paste Your Map ID</label>
+        <input type="text" class="col col-6 mr1 text-input">
+        <button class="button button--primary">Add Map</button>
+      </div>
+
+      <div class="mb3">
+        <label class="block form-label">...Or Choose A Map Below</label>
+        <select class="col-6 select mb2">
+          <option value="Find a map">Find a map</option>
+          <option value="New York City Bike Map">New York City Bike Map</option>
+          <option value="Best Restaurants in Lisbon">Best Restaurants in Lisbon</option>
+          <option value="NY Prisoner Escape Trail">NY Prisoner Escape Trail</option>
+        </select> 
+      </div>
+
+      <div class="mt3">Don't Have a Map ID?<a href="#"> Create Your Map Here</a></div>
     </div>
 <!-- end maps subbuzz type" --> 
     </div>
