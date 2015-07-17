@@ -8,6 +8,7 @@
   {% compress css %}
   <link rel="stylesheet" type="text/scss" href="{% static 'css/maps.scss' %}" />
   {% endcompress %}
+  <link rel="stylesheet" type="text/scss" href="{% static 'css/fonts/ss-social-regular.css' %}" />
 </head>
 {% endblock %}
 
@@ -89,6 +90,14 @@
 
     <!-- share bar -->
     <div class="col col-12 my3"><img src="https://dl.dropboxusercontent.com/u/2085664/BuzzFeed/sharebar.png" alt=""></div>
+
+    <section class="clearfix mb3 social-set">
+              <a href="#" class="col col-2 px2 py1 center fill-facebook"><span class="ss-facebook ss-social-regular white"></span></a>
+              <a href="#" class="col col-2 px2 py1 center fill-twitter"><span>Twitter</span></a>
+              <a href="#" class="col col-2 px2 py1 center fill-pinterest"><span>Pinterest</span></a>
+              <a href="#" class="col col-2 px2 py1 center fill-google"><span>Google</span></a>
+              <a href="#" class="col col-2 px2 py1 center fill-pink"><span>Bookmark</span></a>
+      </section>
 
     <!-- subbuzz -->
     <div class="subbuzz col col-12 mb4">
