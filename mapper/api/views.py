@@ -32,7 +32,9 @@ def convert(data):
 
 def update_or_create_points(map_id, data):
     map = Map.objects.get(id = map_id)
-    points = data['features']
+    points = data
+    if type(points) is not list:
+        points = data['features']
     ids = []
     for p in points:
         p = convert(p)
