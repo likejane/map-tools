@@ -14,7 +14,7 @@ Mapper.annotate = new function() {
     this.pinTemplate = '\
     <div data-id="{{properties.marker_id}}" class="map-card col col-12 border-bottom p1 pb2 mb2 display-flex">\
         <div class="mr3 flex-1">\
-          <p><span class="text-gray--lightest mr1">Pin coords:</span>({{geometry.coordinates}})</p>\
+          <p class="text-gray--lightest"><span class="mr1">Pin coords:</span>({{geometry.coordinates}})</p>\
           <p class="mt1 type-4">{{properties.title}}</p>\
         </div>\
         <div class="vertical-center">\
