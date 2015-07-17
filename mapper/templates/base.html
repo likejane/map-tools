@@ -23,6 +23,7 @@
 	<script src="{% static 'js/ui.js' %}"></script>
 	<script src="{% static 'js/gallery.js' %}"></script>
 	<script src="{% static 'js/mustache.js' %}"></script>
+	<script src="{% static 'js/ZeroClipboard.js' %}"></script>
 
 	<style>
 	  body { margin:0; padding:0; }
@@ -35,6 +36,21 @@
 
   </head>
   <body>
+
+  <button id="clipb">test</button>
+
+  <script>
+  $(document).ready(function() {
+	var client = new ZeroClipboard( document.getElementById("clipb") );
+
+		client.on( "ready", function( readyEvent ) {
+			ZeroClipboard.setData({
+			  "text/plain": "poop",
+			  "text/html": "<b>Blah</b>"
+			});
+		});
+});
+  </script>
 
     {% block body %} {% endblock %}
 

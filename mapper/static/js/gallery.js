@@ -6,7 +6,7 @@ Mapper.gallery = new function() {
 	<div data-id="{{id}}" data-name="{{name}}" data-notes="{{notes}}"  class="col col-2 mr2 mb3">\
 		<span class="bold block mb1">{{name}}</span>\
 		<div style="width: 100%; height: 100px; background-color:gray;"></div>\
-		<span class="button button--primary full-width mt1">Copy ID</span>\
+		<span class="copy-map-id button button--primary full-width mt1">Copy ID</span>\
     <span class="edit-map-btn button button--secondary full-width mt1">Edit Map</span>\
       </div>';
 
@@ -17,7 +17,7 @@ Mapper.gallery = new function() {
 
 	this.loadData = function() {
 		$.ajax({
-			url: "/api/maps/",
+			url: "/api/maps",
 			type: "GET",
 			contentType: "application/json",
 			done: _gallery.loadGallery
@@ -32,6 +32,22 @@ Mapper.gallery = new function() {
 
 		Mapper.ui.selectEls();
 		Mapper.ui.els.editMapBtn.click(_gallery.openMap);
+		_gallery.copyIdSetup();
+	}
+
+	this.copyIdSetup = function() {
+		var copyIdBtns = $('.copy-map-id'),
+			clipBoard = new ZeroClipboard(copyIdBtns);
+
+		clipBoard.on( "ready", function(readyEvent) {
+			copyIdBtns.mousedown(function() {
+				var elId = $(this).parent().attr('data-id');
+				
+				ZeroClipboard.setData({
+				  "text/plain": elId,
+				});
+			});
+		});
 	}
 
 	this.openMap = function() {
