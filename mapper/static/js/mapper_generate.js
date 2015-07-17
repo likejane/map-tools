@@ -37,12 +37,10 @@ Mapper.generate = new function() {
 			dataType: "json",
 			url: "/api/maps/"+Mapper.map_id,}).done(
 				function(data) {
-
 					_generate.markerCounter = data.points.length + 1;
 
 					Mapper.map_components.storageMarkerLayer.addData(data.points);
 					Mapper.ui.els.savedPins.empty();
-
 					var markers = data.points;
 
 					$.each(markers, function(x, marker) {
@@ -52,7 +50,6 @@ Mapper.generate = new function() {
 				}
 			)
 		}
-
 
 	this.addListeners = function() {
 		Mapper.map_components.map.on('dblclick', Mapper.annotate.addMarker)

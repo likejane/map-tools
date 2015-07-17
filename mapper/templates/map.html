@@ -12,19 +12,47 @@
 </head>
 {% endblock %}
 
-
-
+</script>
 {% block body %}
+  <script type="text/javascript">
+    Mapper.map_id = {{map_id}}
+  </script>
 
   <div class="col col-12 my3">
-    <a id="createNewMapBtn" class="button button--primary col md-col-2">Edit this Map</a>
-    <a id="savePublishBtn" class="hide button button--primary col md-col-2 mr2">Save and Publish</a>
-    <a id="cancelMapBtn" class="hide button button--secondary col md-col-2">Cancel</a>
+    <a id="editMapBtn" class="button button--primary col md-col-2">Edit this Map</a>
+    <a id="savePublishBtn" class="hide button button--primary col md-col-2">Save and Publish</a>
+    <a id="cancelEditMapBtn" class="hide button button--secondary col md-col-2">Cancel</a>
   </div>
 
-  <div class="mx-auto p2 wrapper">
-   <div id='map-creator'style="width:100%;">
+ <div id='mapPreview' style="width:100%;">
+    <div class="clearfix pb4  border-bottom">
+    <div class="col md-col-6 xs-col-12 pr3">
+      <label class="form-label">Title</label>
+      <p id='mapTitle' class="col md-col-6 xs-col-12 pr3"></p>
+
+    </div>
+
+    <div class="col md-col-6 xs-col-12">
+      <label class="form-label">Notes</label>
+      <p id='mapNotes' class="col md-col-6 xs-col-12 pr3"></p>
+    </div>
+
+    <div class="col col-12 mb2">
+    </div>
+
+
+    <div class="col md-col-6 xs-col-12 pr3">
+      <div class="full-width mb3 border-light">
+       <div id="map-screenshot"></div>
+      </div>
+
+    </div>
+      <div class="col md-col-6 xs-col-12 type-5">
+
+    </div>
+  </div>
+</div>
+
 {% include "map-creator.html" %}
-</div>
-</div>
+
 {% endblock %}
