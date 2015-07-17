@@ -87,12 +87,16 @@ Mapper.ui = new function() {
 	this.openMapEditor = function() {
 		_ui.els.mapPreview.hide();
 		_ui.els.editMap.hide();
+		_ui.openMapCreator();
+		_ui.els.cancelEditMap.show();
+		/*
+		_ui.els.editMap.hide();
 		_ui.els.savePublish.show();
 		_ui.els.cancelEditMap.show();
 		_ui.els.formInputs.parents().removeClass('form-error');
 		_ui.els.mapCreator.slideDown(250, function() {
 			Mapper.generate.init();
-		});
+		});*/
 	}
 
 	this.closeMapEditor = function() {
