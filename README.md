@@ -54,11 +54,13 @@ A [GeoDjango][1] app for creating maps.
 4. Run initial django migrations.
 
 	``` bash
+	$ cd mapper
 	$ python manage.py migrate
 	```
 5. Start server.
 
 	``` bash
+	$ cd mapper
 	$ python manage.py runserver
 	```
 
@@ -70,6 +72,7 @@ A [GeoDjango][1] app for creating maps.
 You can use the `import_points` management command to import map points from a csv into the database.
 
 ```bash
+$ cd mapper
 $ python manage.py import_points --map=bikes --file=../data/citibike-demo.csv
 ```
 
