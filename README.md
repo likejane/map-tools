@@ -12,7 +12,13 @@ A [GeoDjango][1] app for creating maps.
 
 #### Prerequisites
 
-- __Python:__ The [buzzfeed dev setup][2] kickstart script should take care of your python setup.
+- __Python:__ The [buzzfeed dev setup][2] kickstart script should take care of your python setup. If you're having trouble setting up a virtualenv make sure the following is in `~/.bash_profile`, then run ``source ~/.bash_profile`.
+	
+	``` bash
+	export WORKON_HOME=$HOME/.virtualenvs
+	export PROJECT_HOME=$HOME/Devel
+	source /usr/local/bin/virtualenvwrapper.sh
+	```
 
 - __Postgres:__ The django app uses a PostgreSQL database with GIS functionality. To install postgres installed and get it running([source][3]):
 
