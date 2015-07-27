@@ -50,7 +50,13 @@ A [GeoDjango][1] app for creating maps.
 	$ psql geodjango
 	> CREATE EXTENSION postgis;
 	```
+3. Create a secret settings file and get contents from someone working on project.
 
+	``` bash
+	$ cd mapper
+	$ touch settings/secret.py
+	```
+	
 4. Run initial django migrations.
 
 	``` bash
